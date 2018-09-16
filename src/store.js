@@ -3,17 +3,10 @@ import firebase from "firebase";
 import "firebase/firestore";
 import { reactReduxFirebase, firebaseReducer } from "react-redux-firebase";
 import { reduxFirestore, firestoreReducer } from "redux-firestore";
+
+import { firebaseConfig } from "./firebaseConfig";
 //reducers
 // @todo
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDQdZxiLKQuHoRgyKMz6qxaQ9UzwjpEZLc",
-  authDomain: "react-client-panel-49a4a.firebaseapp.com",
-  databaseURL: "https://react-client-panel-49a4a.firebaseio.com",
-  projectId: "react-client-panel-49a4a",
-  storageBucket: "react-client-panel-49a4a.appspot.com",
-  messagingSenderId: "1002403928381"
-};
 
 // react-redux-firebase config
 const rrfConfig = {
