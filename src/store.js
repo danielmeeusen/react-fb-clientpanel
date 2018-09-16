@@ -4,6 +4,7 @@ import "firebase/firestore";
 import { reactReduxFirebase, firebaseReducer } from "react-redux-firebase";
 import { reduxFirestore, firestoreReducer } from "redux-firestore";
 
+// firebase config info no included in github repo for security reasons
 import { firebaseConfig } from "./firebaseConfig";
 //reducers
 // @todo
