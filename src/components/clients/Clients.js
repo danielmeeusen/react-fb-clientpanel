@@ -1,26 +1,35 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+// import { firestore } from "firebase";
 
-export class Sidebar extends Component {
+import Spinner from "../layout/Spinner";
+
+export class Clients extends Component {
+  state = {
+    totalOwed: null
+  };
+  // static methods are not bound to class instance and have no bound 'this'
+  // static methods are often used as helper functions
+  static getDerivedStateFromProps(props, state) {
+    const { clients } = props;
+
+    if (clients) {
+      // add balances
+      const total = clients.reduce((total, client) => {
+        return total + parseFloat(client.balance.toString());
+      }, 0);
+
+      return { totalOwed: total };
+    }
+  }
+
   render() {
-    const clients = [
-      {
-        id: "985168498",
-        firstName: "Kevin",
-        lastName: "Johnson",
-        email: "kevin@gmail.com",
-        phone: "555-555-5555",
-        balance: "30"
-      },
-      {
-        id: "5654689",
-        firstName: "Bob",
-        lastName: "Jackson",
-        email: "bob@gmail.com",
-        phone: "555-444-5555",
-        balance: "1000"
-      }
-    ];
+    const { clients } = this.props;
+    const { totalOwed } = this.state;
     if (clients) {
       return (
         <div>
@@ -30,7 +39,14 @@ export class Sidebar extends Component {
                 <i className="fas fa-users" /> Clients
               </h2>
             </div>
-            <div className="col-md-6" />
+            <div className="col-md-6">
+              <h5 className="text-right text-secondary">
+                Total Owed{" "}
+                <span className="text-primary">
+                  ${parseFloat(totalOwed).toFixed(2)}
+                </span>
+              </h5>
+            </div>
           </div>
 
           <table className="table table-striped">
@@ -65,9 +81,19 @@ export class Sidebar extends Component {
         </div>
       );
     } else {
-      return <h1>Loading...</h1>;
+      return <Spinner />;
     }
   }
 }
 
-export default Sidebar;
+Clients.PropTypes = {
+  firestore: PropTypes.object.isRequired,
+  clients: PropTypes.array
+};
+
+export default compose(
+  firestoreConnect([{ collection: "clients" }]),
+  connect((state, props) => ({
+    clients: state.firestore.ordered.clients
+  }))
+)(Clients);
