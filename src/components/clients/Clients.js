@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
-// import { firestore } from "firebase";
 
 import Spinner from "../layout/Spinner";
 
@@ -14,6 +13,8 @@ export class Clients extends Component {
   };
   // static methods are not bound to class instance and have no bound 'this'
   // static methods are often used as helper functions
+  // called whenever the component is updated with props as an argument and
+  // should return an object to be used as state or null to update nothing
   static getDerivedStateFromProps(props, state) {
     const { clients } = props;
 
@@ -30,6 +31,7 @@ export class Clients extends Component {
   render() {
     const { clients } = this.props;
     const { totalOwed } = this.state;
+
     if (clients) {
       return (
         <div>
@@ -86,7 +88,7 @@ export class Clients extends Component {
   }
 }
 
-Clients.PropTypes = {
+Clients.propTypes = {
   firestore: PropTypes.object.isRequired,
   clients: PropTypes.array
 };
