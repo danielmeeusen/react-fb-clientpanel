@@ -22,7 +22,9 @@ export class ClientDetails extends Component {
       balance: parseFloat(balanceUpdateAmount)
     };
 
-    firestore.update({ collection: 'clients', doc: client.id }, clientUpdate);
+    firestore
+      .update({ collection: 'clients', doc: client.id }, clientUpdate)
+      .then(this.setState({ showBalanceUpdate: '' }));
   };
 
   onDeleteClick = e => {
@@ -53,11 +55,7 @@ export class ClientDetails extends Component {
               onChange={this.onChange}
             />
             <div className="input-group-append">
-              <input
-                type="submit"
-                value="Update"
-                className="btn btn-outline-dark"
-              />
+              <input type="submit" value="Update" className="btn btn-dark" />
             </div>
           </div>
         </form>
@@ -94,19 +92,19 @@ export class ClientDetails extends Component {
           </div>
           <hr />
           <div className="card">
-            <h5 className="card-header">
+            <h3 className="card-header">
               {client.firstName} {client.lastName}
-            </h5>
+            </h3>
             <div className="card-body">
               <div className="row">
                 <div className="col-md-8 col-sm-6">
-                  <h6>
+                  <h4>
                     Client ID:{' '}
                     <span className="text-secondary">{client.id}</span>
-                  </h6>
+                  </h4>
                 </div>
                 <div className="col-md-4 col-sm-6">
-                  <h6 className="pull-right">
+                  <h4 className="pull-right">
                     Balance:{' '}
                     <span
                       className={classnames({
@@ -128,7 +126,7 @@ export class ClientDetails extends Component {
                         <i className="fas fa-pencil-alt" />
                       </a>
                     </small>
-                  </h6>
+                  </h4>
                   {balanceForm}
                 </div>
               </div>

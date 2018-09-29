@@ -1,7 +1,21 @@
+$smBreak: 768px;
+$mdBreak: 992px;
+$lgBreak: 1200px;
+
 body {
   font-size: 18px;
+  min-width: 560px;
 }
 
 :link {
   font-size: 18px;
+}
+
+.add-button {
+  @media screen and (max-width: $mdBreak) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: $smBreak) {
+    font-size: 18px;
+  }
 }

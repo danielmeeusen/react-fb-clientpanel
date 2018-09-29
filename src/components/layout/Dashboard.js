@@ -1,6 +1,6 @@
-import React from "react";
-import Clients from "../clients/Clients";
-import Sidebar from "./Sidebar";
+import React from 'react';
+import Clients from '../clients/Clients';
+import Sidebar from './Sidebar';
 
 export default () => {
   return (

@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { compose } from "redux";
-import { connect } from "react-redux";
-import { firestoreConnect } from "react-redux-firebase";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
 
-import Spinner from "../layout/Spinner";
+import Spinner from '../layout/Spinner';
 
 export class Clients extends Component {
   state = {
@@ -26,6 +26,7 @@ export class Clients extends Component {
 
       return { totalOwed: total };
     }
+    return null;
   }
 
   render() {
@@ -43,7 +44,7 @@ export class Clients extends Component {
             </div>
             <div className="col-md-6">
               <h5 className="text-right text-secondary">
-                Total Owed{" "}
+                Total Owed{' '}
                 <span className="text-primary">
                   ${parseFloat(totalOwed).toFixed(2)}
                 </span>
@@ -94,7 +95,7 @@ Clients.propTypes = {
 };
 
 export default compose(
-  firestoreConnect([{ collection: "clients" }]),
+  firestoreConnect([{ collection: 'clients' }]),
   connect((state, props) => ({
     clients: state.firestore.ordered.clients
   }))
