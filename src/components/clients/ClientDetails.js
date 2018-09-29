@@ -1,15 +1,70 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { compose } from "redux";
-import { connect } from "react-redux";
-import { firestoreConnect } from "react-redux-firebase";
-import classnames from "classnames";
-import Spinner from "../layout/Spinner";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import classnames from 'classnames';
+import Spinner from '../layout/Spinner';
 
 export class ClientDetails extends Component {
+  state = {
+    showBalanceUpdate: false,
+    balanceUpdateAmount: ''
+  };
+
+  balanceSubmit = e => {
+    e.preventDefault();
+
+    const { client, firestore } = this.props;
+    const { balanceUpdateAmount } = this.state;
+    const clientUpdate = {
+      balance: parseFloat(balanceUpdateAmount)
+    };
+
+    firestore.update({ collection: 'clients', doc: client.id }, clientUpdate);
+  };
+
+  onDeleteClick = e => {
+    const { client, firestore, history } = this.props;
+    firestore
+      .delete({ collection: 'clients', doc: client.id })
+      .then(history.push('/'));
+  };
+
+  onChange = e => this.setState({ [e.target.name]: e.target.value });
+
   render() {
     const { client } = this.props;
+    const { showBalanceUpdate, balanceUpdateAmount } = this.state;
+
+    let balanceForm = '';
+    // if balance form should display
+    if (showBalanceUpdate) {
+      balanceForm = (
+        <form onSubmit={this.balanceSubmit}>
+          <div className="input-group">
+            <input
+              type="text"
+              className="form-control"
+              name="balanceUpdateAmount"
+              placeholder="Add new Balance"
+              value={balanceUpdateAmount}
+              onChange={this.onChange}
+            />
+            <div className="input-group-append">
+              <input
+                type="submit"
+                value="Update"
+                className="btn btn-outline-dark"
+              />
+            </div>
+          </div>
+        </form>
+      );
+    } else {
+      balanceForm = null;
+    }
 
     if (client) {
       return (
@@ -28,7 +83,12 @@ export class ClientDetails extends Component {
                 >
                   Edit
                 </Link>
-                <button className="btn btn-danger btn-sm">Delete</button>
+                <button
+                  onClick={this.onDeleteClick}
+                  className="btn btn-danger btn-sm"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           </div>
@@ -41,23 +101,35 @@ export class ClientDetails extends Component {
               <div className="row">
                 <div className="col-md-8 col-sm-6">
                   <h6>
-                    Client ID:{" "}
+                    Client ID:{' '}
                     <span className="text-secondary">{client.id}</span>
                   </h6>
                 </div>
                 <div className="col-md-4 col-sm-6">
                   <h6 className="pull-right">
-                    Balance:{" "}
+                    Balance:{' '}
                     <span
                       className={classnames({
-                        "text-danger": client.balance > 0,
-                        "text-success": client.balance === 0
+                        'text-danger': client.balance > 0,
+                        'text-success': client.balance === 0
                       })}
                     >
                       ${parseFloat(client.balance).toFixed(2)}
-                    </span>
+                    </span>{' '}
+                    <small>
+                      <a
+                        href="#!"
+                        onClick={() =>
+                          this.setState({
+                            showBalanceUpdate: !this.state.showBalanceUpdate
+                          })
+                        }
+                      >
+                        <i className="fas fa-pencil-alt" />
+                      </a>
+                    </small>
                   </h6>
-                  {/* todo - balance form */}
+                  {balanceForm}
                 </div>
               </div>
               <hr />
@@ -85,7 +157,7 @@ ClientDetails.propTypes = {
 
 export default compose(
   firestoreConnect(props => [
-    { collection: "clients", storeAs: "client", doc: props.match.params.id }
+    { collection: 'clients', storeAs: 'client', doc: props.match.params.id }
   ]),
   connect(({ firestore: { ordered } }, props) => ({
     client: ordered.client && ordered.client[0]
