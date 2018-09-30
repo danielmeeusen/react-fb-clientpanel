@@ -5,6 +5,12 @@ body {
 :link {
   font-size: 18px; }
 
+.fa-edit {
+  color: black;
+  font-size: 20px;
+  margin-left: 10px;
+  font-weight: 200; }
+
 @media screen and (max-width: 992px) {
   .add-button {
     font-size: 14px; } }

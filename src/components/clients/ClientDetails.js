@@ -7,7 +7,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import classnames from 'classnames';
 import Spinner from '../layout/Spinner';
 
-export class ClientDetails extends Component {
+class ClientDetails extends Component {
   state = {
     showBalanceUpdate: false,
     balanceUpdateAmount: ''
@@ -123,7 +123,7 @@ export class ClientDetails extends Component {
                           })
                         }
                       >
-                        <i className="fas fa-pencil-alt" />
+                        <i className="fas fa-edit" />
                       </a>
                     </small>
                   </h4>
