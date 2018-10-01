@@ -1,17 +1,17 @@
-import { createStore, combineReducers, compose } from "redux";
-import firebase from "firebase";
-import "firebase/firestore";
-import { reactReduxFirebase, firebaseReducer } from "react-redux-firebase";
-import { reduxFirestore, firestoreReducer } from "redux-firestore";
+import { createStore, combineReducers, compose } from 'redux';
+import firebase from 'firebase';
+import 'firebase/firestore';
+import { reactReduxFirebase, firebaseReducer } from 'react-redux-firebase';
+import { reduxFirestore, firestoreReducer } from 'redux-firestore';
 
 // firebase config info no included in github repo for security reasons
-import { firebaseConfig } from "./firebaseConfig";
+import { firebaseConfig } from './firebaseConfig';
 //reducers
-// @todo
+import notifyReducer from './reducers/notifyReducer';
 
 // react-redux-firebase config
 const rrfConfig = {
-  userProfile: "users",
+  userProfile: 'users',
   useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
 };
 
@@ -32,7 +32,8 @@ const createStoreWithFirebase = compose(
 // Add firebase to reducers
 const rootReducer = combineReducers({
   firebase: firebaseReducer,
-  firestore: firestoreReducer // <- needed if using firestore
+  firestore: firestoreReducer, // <- needed if using firestore
+  notify: notifyReducer
 });
 
 // create initial state
