@@ -38,8 +38,23 @@ const rootReducer = combineReducers({
   settings: settingsReducer
 });
 
+// check for settings in localStorage
+if (localStorage.getItem('settings') == null) {
+  // default settings
+  const defaultSettings = {
+    disableBalanceOnAdd: true,
+    disableBalanceOnEdit: false,
+    allowRegistration: false
+  };
+
+  // set to localStorage
+  // only strings can be put into local storage hence JSON.stringify
+  localStorage.setItem('settings', JSON.stringify(defaultSettings));
+}
+
 // create initial state
-const initialState = {};
+// JSON.parse is used to return settings from a string to an object
+const initialState = { settings: JSON.parse(localStorage.getItem('settings')) };
 
 // create store
 const store = createStoreWithFirebase(
