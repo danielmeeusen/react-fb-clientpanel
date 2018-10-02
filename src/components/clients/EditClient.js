@@ -42,7 +42,6 @@ export class EditClient extends Component {
   render() {
     const { client } = this.props;
     const { disableBalanceOnEdit } = this.props.settings;
-    console.log(disableBalanceOnEdit);
 
     if (client) {
       return (

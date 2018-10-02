@@ -18,6 +18,7 @@ export default function(state = {}, action) {
       };
     case ALLOW_REGISTRATION:
       return {
+        ...state,
         allowRegistration: action.payload
       };
     default:

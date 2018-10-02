@@ -34,22 +34,22 @@ class Settings extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-md-6" />
-          <Link to="/" className="btn btn-link">
-            <i className="fas fa-arrow-circle-left" />
-            Back to Dashboard
-          </Link>
+          <div className="col-md-6">
+            <Link to="/" className="btn btn-link">
+              <i className="fas fa-arrow-circle-left" /> Back to Dashboard
+            </Link>
+          </div>
         </div>
         <div className="card">
           <div className="card-header">Edit Settings</div>
           <div className="card-body">
             <form>
               <div className="form-group">
-                <label>AllowRegistration</label>{' '}
+                <label>Allow Registration</label>{' '}
                 <input
                   type="checkbox"
                   name="allowRegistration"
-                  checked={allowRegistration}
+                  checked={!!allowRegistration}
                   onChange={this.allowRegistrationChange}
                 />
               </div>
@@ -59,7 +59,7 @@ class Settings extends Component {
                 <input
                   type="checkbox"
                   name="disableBalanceOnAdd"
-                  checked={disableBalanceOnAdd}
+                  checked={!!disableBalanceOnAdd}
                   onChange={this.disableBalanceOnAddChange}
                 />
               </div>
@@ -69,7 +69,7 @@ class Settings extends Component {
                 <input
                   type="checkbox"
                   name="disableBalanceOnEdit"
-                  checked={disableBalanceOnEdit}
+                  checked={!!disableBalanceOnEdit}
                   onChange={this.disableBalanceOnEditChange}
                 />
               </div>

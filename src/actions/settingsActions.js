@@ -7,8 +7,9 @@ import {
 export const setDisableBalanceOnAdd = () => {
   // get settings from localStorage
   const settings = JSON.parse(localStorage.getItem('settings'));
-  console.log(settings);
+
   // toggle
+
   settings.disableBalanceOnAdd = !settings.disableBalanceOnAdd;
 
   // set back to localStorage
@@ -16,7 +17,7 @@ export const setDisableBalanceOnAdd = () => {
 
   return {
     type: DISABLE_BALANCE_ON_ADD,
-    payload: settings.setDisableBalanceOnAdd
+    payload: settings.disableBalanceOnAdd
   };
 };
 
@@ -32,7 +33,7 @@ export const setDisableBalanceOnEdit = () => {
 
   return {
     type: DISABLE_BALANCE_ON_EDIT,
-    payload: settings.setDisableBalanceOnEdit
+    payload: settings.disableBalanceOnEdit
   };
 };
 
@@ -48,6 +49,6 @@ export const setAllowRegistration = () => {
 
   return {
     type: ALLOW_REGISTRATION,
-    payload: settings.setAllowRegistration
+    payload: settings.allowRegistration
   };
 };

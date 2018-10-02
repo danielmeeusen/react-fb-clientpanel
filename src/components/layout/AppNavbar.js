@@ -30,6 +30,7 @@ class AppNavbar extends Component {
   render() {
     const { isAuthenticated } = this.state;
     const { auth } = this.props;
+
     const { allowRegistration } = this.props.settings;
 
     return (
