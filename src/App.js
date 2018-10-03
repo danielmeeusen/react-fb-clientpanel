@@ -23,44 +23,46 @@ class App extends Component {
         <Router>
           <div className="App">
             <AppNavbar />
-            <div className="container">
-              <Switch>
-                <Route
-                  exact
-                  path="/"
-                  component={UserIsAuthenticated(Dashboard)}
-                />
-                <Route
-                  exact
-                  path="/client/add"
-                  component={UserIsAuthenticated(AddClient)}
-                />
-                <Route
-                  exact
-                  path="/client/edit/:id"
-                  component={UserIsAuthenticated(EditClient)}
-                />
-                <Route
-                  exact
-                  path="/client/:id"
-                  component={UserIsAuthenticated(ClientDetails)}
-                />
-                <Route
-                  exact
-                  path="/login"
-                  component={UserIsNotAuthenticated(Login)}
-                />
-                <Route
-                  exact
-                  path="/register"
-                  component={UserIsNotAuthenticated(Register)}
-                />
-                <Route
-                  exact
-                  path="/settings"
-                  component={UserIsAuthenticated(Settings)}
-                />
-              </Switch>
+            <div className="cont">
+              <div className="col-xl-8 col-lg-10 col-md-12 mx-auto">
+                <Switch>
+                  <Route
+                    exact
+                    path="/"
+                    component={UserIsAuthenticated(Dashboard)}
+                  />
+                  <Route
+                    exact
+                    path="/client/add"
+                    component={UserIsAuthenticated(AddClient)}
+                  />
+                  <Route
+                    exact
+                    path="/client/edit/:id"
+                    component={UserIsAuthenticated(EditClient)}
+                  />
+                  <Route
+                    exact
+                    path="/client/:id"
+                    component={UserIsAuthenticated(ClientDetails)}
+                  />
+                  <Route
+                    exact
+                    path="/login"
+                    component={UserIsNotAuthenticated(Login)}
+                  />
+                  <Route
+                    exact
+                    path="/register"
+                    component={UserIsNotAuthenticated(Register)}
+                  />
+                  <Route
+                    exact
+                    path="/settings"
+                    component={UserIsAuthenticated(Settings)}
+                  />
+                </Switch>
+              </div>
             </div>
           </div>
         </Router>

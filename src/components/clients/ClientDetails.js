@@ -74,7 +74,7 @@ class ClientDetails extends Component {
               </Link>
             </div>
             <div className="col-md-6">
-              <div className="btn-group float-right">
+              <div className="btn-group float-right mr-2">
                 <Link
                   to={`/client/edit/${client.id}`}
                   className="btn btn-dark btn-sm"
@@ -90,18 +90,17 @@ class ClientDetails extends Component {
               </div>
             </div>
           </div>
-          <hr />
-          <div className="card">
+          <div className="card shadow">
             <h3 className="card-header">
               {client.firstName} {client.lastName}
             </h3>
             <div className="card-body">
               <div className="row">
                 <div className="col-md-8 col-sm-6">
-                  <h4>
+                  <h6>
                     Client ID:{' '}
                     <span className="text-secondary">{client.id}</span>
-                  </h4>
+                  </h6>
                 </div>
                 <div className="col-md-4 col-sm-6">
                   <h4 className="pull-right">

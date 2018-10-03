@@ -34,68 +34,62 @@ class AppNavbar extends Component {
     const { allowRegistration } = this.props.settings;
 
     return (
-      <nav className="navbar navbar-expand-md navbar-dark bg-primary mb-4">
-        <div className="container">
-          <Link to="/" className="navbar-brand">
-            ClientPanel
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarMain"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarMain">
-            <ul className="navbar-nav mr-auto">
-              {isAuthenticated ? (
-                <li className="nav-item">
-                  <Link to="/" className="nav-link">
-                    Dashboard
-                  </Link>
-                </li>
-              ) : null}
-            </ul>
+      <nav className="navbar navbar-expand-md navbar-dark shadow">
+        <Link to="/" className="navbar-brand">
+          ClientPanel
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarMain"
+        >
+          <i className="fas fa-bars" />
+        </button>
+        <div className="collapse navbar-collapse" id="navbarMain">
+          <ul className="navbar-nav mr-auto">
             {isAuthenticated ? (
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <a href="#!" className="nav-link">
-                    {auth.email}
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <Link to="/settings" className="nav-link">
-                    Settings
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <a
-                    href="#!"
-                    className="nav-link"
-                    onClick={this.onLogoutClick}
-                  >
-                    Logout
-                  </a>
-                </li>
-              </ul>
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  Dashboard
+                </Link>
+              </li>
             ) : null}
+          </ul>
+          {isAuthenticated ? (
+            <ul className="navbar-nav ml-auto navbar-links">
+              <li className="nav-item">
+                <a href="#!" className="nav-link">
+                  {auth.email}
+                </a>
+              </li>
+              <li className="nav-item">
+                <Link to="/settings" className="nav-link">
+                  Settings
+                </Link>
+              </li>
+              <li className="nav-item">
+                <a href="#!" className="nav-link" onClick={this.onLogoutClick}>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          ) : null}
 
-            {allowRegistration && !isAuthenticated ? (
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <Link to="/login" className="nav-link">
-                    Login
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/register" className="nav-link">
-                    Register
-                  </Link>
-                </li>
-              </ul>
-            ) : null}
-          </div>
+          {allowRegistration && !isAuthenticated ? (
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link to="/login" className="nav-link">
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/register" className="nav-link">
+                  Register
+                </Link>
+              </li>
+            </ul>
+          ) : null}
         </div>
       </nav>
     );

@@ -39,9 +39,9 @@ class Login extends Component {
   render() {
     const { message, messageType } = this.props.notify;
     return (
-      <div className="row">
-        <div className="col-md-6 mx-auto">
-          <div className="card">
+      <div className="row mt">
+        <div className="col-lg-6 col-md-8 col-sm-10 col-xs-12 mx-auto">
+          <div className="card shadow">
             <div className="card-body">
               {message ? (
                 <Alert message={message} messageType={messageType} />

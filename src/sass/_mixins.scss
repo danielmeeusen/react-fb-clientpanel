@@ -1,0 +1,13 @@
+@mixin scaleHeaders($base, $scale) {
+  @for $i from 1 through 6 {
+    h#{$i} {
+      font-size: $base + $scale * (6 - $i);
+    }
+  }
+  body {
+    font-size: $base;
+  }
+  .navbar {
+    font-size: $base + 2;
+  }
+}

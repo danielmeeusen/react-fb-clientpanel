@@ -1,0 +1,18 @@
+@media screen and (max-width: $mdBreak) {
+  $baseFontSize: 17px;
+  $scale: 4;
+
+  @include scaleHeaders($baseFontSize, $scale);
+}
+
+@media screen and (max-width: $smBreak) {
+  $baseFontSize: 16px;
+  $scale: 4;
+
+  @include scaleHeaders($baseFontSize, $scale);
+
+  .table th,
+  .table td {
+    padding-left: 2%;
+  }
+}

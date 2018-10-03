@@ -1,0 +1,32 @@
+.navbar {
+  background-color: $navbar;
+}
+
+.navbar-brand {
+  margin-left: 2%;
+}
+
+.navbar-links {
+  margin-right: 2%;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.fa-bars {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 30px;
+}
+
+.fa-bars:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 1) !important;
+}

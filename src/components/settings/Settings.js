@@ -40,8 +40,8 @@ class Settings extends Component {
             </Link>
           </div>
         </div>
-        <div className="card">
-          <div className="card-header">Edit Settings</div>
+        <div className="card shadow">
+          <h5 className="card-header">Edit Settings</h5>
           <div className="card-body">
             <form>
               <div className="form-group">

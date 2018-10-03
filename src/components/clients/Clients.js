@@ -35,21 +35,22 @@ export class Clients extends Component {
 
     if (clients) {
       return (
-        <div>
-          <div className="row">
-            <div className="col-md-6">
-              <h2>
-                <i className="fas fa-users" /> Clients
-              </h2>
-            </div>
-            <div className="col-md-6">
-              <h5 className="text-right text-secondary">
-                Total Owed{' '}
-                <span className="text-primary">
-                  ${parseFloat(totalOwed).toFixed(2)}
-                </span>
-              </h5>
-            </div>
+        <div className="card shadow mt">
+          <div className="card-header d-flex justify-content-between">
+            <h3 className="align-self-end">
+              <i className="fas fa-users" /> Clients
+            </h3>
+            <h4 className="text-right text-secondary align-self-end">
+              Total Owed:{' '}
+              <span className="text-primary">
+                ${parseFloat(totalOwed).toFixed(2)}
+              </span>
+            </h4>
+            <h3>
+              <Link to="/client/add" className="btn btn-success">
+                Add Client
+              </Link>
+            </h3>
           </div>
 
           <table className="table table-striped">

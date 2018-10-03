@@ -53,8 +53,8 @@ export class EditClient extends Component {
               </Link>
             </div>
           </div>
-          <div className="card">
-            <div className="card-header">Edit Client</div>
+          <div className="card shadow">
+            <h4 className="card-header">Edit Client</h4>
             <div className="card-body">
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">

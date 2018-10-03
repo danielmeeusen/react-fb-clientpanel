@@ -1,0 +1,41 @@
+html {
+  min-width: 560px;
+}
+
+body {
+  background-color: $background;
+}
+
+.cont {
+  margin-top: 5%;
+}
+
+.mt {
+  margin-top: 10%;
+}
+
+.btn-primary {
+  background-color: $buttonPrimary !important;
+  color: white;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: $buttonPrimaryHover !important;
+}
+
+label {
+  font-weight: 500;
+}
+
+.fa-edit {
+  color: black;
+  font-size: 20px;
+  margin-left: 10px;
+  font-weight: 200;
+}
+
+.table th,
+.table td {
+  padding-left: 5%;
+}

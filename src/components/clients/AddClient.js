@@ -36,15 +36,13 @@ class AddClient extends Component {
     const { disableBalanceOnAdd } = this.props.settings;
     return (
       <div>
-        <div className="row">
-          <div className="col-md-6">
-            <Link to="/" className="btn btn-link">
-              <i className="fas fa-arrow-circle-left" /> Back To Dashboard
-            </Link>
+        <Link to="/" className="btn btn-link">
+          <i className="fas fa-arrow-circle-left" /> Back To Dashboard
+        </Link>
+        <div className="card shadow">
+          <div className="card-header pb-1 pt-3">
+            <h4 className="header-content"> Add Client </h4>
           </div>
-        </div>
-        <div className="card">
-          <div className="card-header">Add Client</div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
