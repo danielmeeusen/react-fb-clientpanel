@@ -3,22 +3,16 @@ $smBreak: 768px;
 $mdBreak: 992px;
 $lgBreak: 1200px;
 
-// colors
-$navbar: #0091d5;
-$text: white;
-$background: #e1e1eb;
-$card: #a5d8dd;
-$buttonPrimary: #0091d5;
-$buttonPrimaryHover: #00acff;
-
 // font sizes
 $baseFontSize: 18px;
 $scale: 4;
 
+@import 'colors';
 @import 'navbar';
 @import 'mixins';
 @import 'main';
+@import 'toggle';
 
 @include scaleHeaders($baseFontSize, $scale);
-
+//test
 @import 'media';

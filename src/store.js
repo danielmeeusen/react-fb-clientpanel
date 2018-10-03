@@ -42,6 +42,7 @@ const rootReducer = combineReducers({
 if (localStorage.getItem('settings') == null) {
   // default settings
   const defaultSettings = {
+    darkTheme: false,
     disableBalanceOnAdd: true,
     disableBalanceOnEdit: false,
     allowRegistration: false

@@ -1,4 +1,5 @@
 import {
+  DARK_THEME,
   DISABLE_BALANCE_ON_ADD,
   DISABLE_BALANCE_ON_EDIT,
   ALLOW_REGISTRATION
@@ -6,6 +7,11 @@ import {
 
 export default function(state = {}, action) {
   switch (action.type) {
+    case DARK_THEME:
+      return {
+        ...state,
+        darkTheme: action.payload
+      };
     case DISABLE_BALANCE_ON_ADD:
       return {
         ...state,

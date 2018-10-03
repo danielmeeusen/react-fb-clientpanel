@@ -1,0 +1,41 @@
+// light colors
+$navbarLight: #0091d5;
+$textLight: black;
+$cardLight: white;
+$buttonPrimary: #0091d5;
+$buttonPrimaryHover: #00acff;
+$backgroundLight: #e1e1eb;
+
+// dark colors
+$navbarDark: #2b2b40;
+$textDark: white;
+$cardDark: #2b2b40;
+$backgroundDark: #151520;
+$inputDark: #555580;
+
+$color: #ccccdd;
+
+// rules
+.Light {
+  .navbar {
+    background-color: $navbarLight;
+  }
+
+  .card {
+    background-color: $cardLight;
+  }
+}
+
+.Dark {
+  .navbar {
+    background-color: $navbarDark;
+  }
+  .card {
+    background-color: $cardDark;
+  }
+  .form-control {
+    background-color: $inputDark !important;
+    border: none !important;
+    color: white;
+  }
+}

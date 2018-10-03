@@ -1,8 +1,26 @@
 import {
+  DARK_THEME,
   DISABLE_BALANCE_ON_ADD,
   DISABLE_BALANCE_ON_EDIT,
   ALLOW_REGISTRATION
 } from './types';
+
+export const setDarkTheme = () => {
+  // get settings from localStorage
+  const settings = JSON.parse(localStorage.getItem('settings'));
+
+  // toggle
+
+  settings.darkTheme = !settings.darkTheme;
+
+  // set back to localStorage
+  localStorage.setItem('settings', JSON.stringify(settings));
+
+  return {
+    type: DARK_THEME,
+    payload: settings.darkTheme
+  };
+};
 
 export const setDisableBalanceOnAdd = () => {
   // get settings from localStorage
