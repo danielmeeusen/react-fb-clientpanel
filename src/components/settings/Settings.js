@@ -40,14 +40,12 @@ class Settings extends Component {
 
     return (
       <div>
-        <div className="row">
-          <div className="col-xl-8 mx-auto">
-            <Link to="/" className="btn btn-link">
-              <i className="fas fa-arrow-circle-left" /> Back to Dashboard
-            </Link>
-          </div>
+        <div className="col-lg-10 mx-auto">
+          <Link to="/" className="btn btn-link">
+            <i className="fas fa-arrow-circle-left" /> Back to Dashboard
+          </Link>
         </div>
-        <div className="col-xl-8 mx-auto">
+        <div className="col-lg-10 mx-auto">
           <div className="card shadow">
             <h5 className="card-header">Edit Settings</h5>
             <div className="card-body">

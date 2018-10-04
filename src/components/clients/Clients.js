@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 
-import Spinner from '../layout/Spinner';
+import Bouncing from '../layout/Bouncing';
 
 export class Clients extends Component {
   state = {
@@ -85,7 +85,7 @@ export class Clients extends Component {
         </div>
       );
     } else {
-      return <Spinner />;
+      return <Bouncing />;
     }
   }
 }

@@ -6,7 +6,7 @@ import { firebaseConnect } from 'react-redux-firebase';
 import { notifyUser } from '../../actions/notifyActions';
 import Alert from '../layout/Alert';
 
-class Login extends Component {
+class Register extends Component {
   state = {
     email: '',
     password: ''
@@ -88,7 +88,7 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = {
+Register.propTypes = {
   firebase: PropTypes.object.isRequired,
   notify: PropTypes.object.isRequired,
   notifyUser: PropTypes.func.isRequired
@@ -103,4 +103,4 @@ export default compose(
     }),
     { notifyUser }
   )
-)(Login);
+)(Register);
