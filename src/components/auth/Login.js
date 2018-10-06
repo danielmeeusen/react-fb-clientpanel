@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -68,11 +69,15 @@ class Login extends Component {
                     onChange={this.onChange}
                   />
                 </div>
+                <br />
                 <input
                   type="submit"
                   value="Login"
                   className="btn btn-login btn-primary btn-block"
                 />
+                <div className="text-center mt-4">
+                  Don't have an account? <Link to="/register">Sign Up</Link>
+                </div>
               </form>
             </div>
           </div>

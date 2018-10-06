@@ -2,12 +2,44 @@
   margin-left: 2%;
 }
 
+.btn-floating {
+}
+
 .navbar-links {
   margin-right: 2%;
 }
 
-.navbar-toggler {
+.dropdown-toggle {
+  border-radius: 50%;
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 22px;
+  margin: 0 !important;
+  padding-left: 6px !important;
+  padding-top: 6px !important;
+  outline: none !important;
+  background-color: $navButton;
+}
+
+.dropdown-toggle::after {
+  display: none;
+  outline: none;
   border: none;
+}
+
+.dropdown-menu {
+  background-color: $navBack;
+  color: white !important;
+}
+
+.dropdown-item {
+  font-size: 18px;
+  color: black;
+  font-weight: 400;
+}
+
+.dropdown-item:hover {
+  background-color: $navBackHov;
 }
 
 .fa-bars {

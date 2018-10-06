@@ -21,8 +21,33 @@
 .navbar-links {
   margin-right: 2%; }
 
-.navbar-toggler {
+.dropdown-toggle {
+  border-radius: 50%;
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 22px;
+  margin: 0 !important;
+  padding-left: 6px !important;
+  padding-top: 6px !important;
+  outline: none !important;
+  background-color: #ae64db; }
+
+.dropdown-toggle::after {
+  display: none;
+  outline: none;
   border: none; }
+
+.dropdown-menu {
+  background-color: #c1b9d0;
+  color: white !important; }
+
+.dropdown-item {
+  font-size: 18px;
+  color: black;
+  font-weight: 400; }
+
+.dropdown-item:hover {
+  background-color: #e1e1eb; }
 
 .fa-bars {
   color: rgba(255, 255, 255, 0.85);
@@ -45,6 +70,28 @@ html {
 
 .mt {
   margin-top: 10%; }
+
+.rollingDark {
+  padding-top: 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px; }
+
+.rolling-text-dark {
+  font-size: 20px !important;
+  color: aqua; }
+
+.rollingLight {
+  padding-top: 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px; }
+
+.rolling-text-dark {
+  font-size: 20px !important;
+  color: #151520; }
 
 .btn-primary {
   background-color: #0091d5 !important;

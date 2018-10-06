@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import Bouncing from '../layout/Bouncing';
+import Rolling from '../layout/Rolling';
 
 export class EditClient extends Component {
   constructor(props) {
@@ -130,7 +130,7 @@ export class EditClient extends Component {
         </div>
       );
     } else {
-      return <Bouncing />;
+      return <Rolling />;
     }
   }
 }

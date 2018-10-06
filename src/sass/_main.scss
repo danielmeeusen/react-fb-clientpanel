@@ -10,6 +10,32 @@ html {
   margin-top: 10%;
 }
 
+.rollingDark {
+  padding-top: 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px;
+}
+
+.rolling-text-dark {
+  font-size: 20px !important;
+  color: aqua;
+}
+
+.rollingLight {
+  padding-top: 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px;
+}
+
+.rolling-text-dark {
+  font-size: 20px !important;
+  color: #151520;
+}
+
 .btn-primary {
   background-color: $buttonPrimary !important;
   color: white;

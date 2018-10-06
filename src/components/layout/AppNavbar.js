@@ -12,8 +12,11 @@ class AppNavbar extends Component {
 
   static getDerivedStateFromProps(props, state) {
     const { auth } = props;
+
     if (auth.uid) {
-      return { isAuthenticated: true };
+      return {
+        isAuthenticated: true
+      };
     } else {
       return { isAuthenticated: false };
     }
@@ -27,66 +30,61 @@ class AppNavbar extends Component {
     firebase.logout();
   };
 
-  render() {
-    const { isAuthenticated } = this.state;
-    const { auth } = this.props;
+  getInitials = (f, l) => {
+    if (f) {
+      return f.slice(0, 1) + l.slice(0, 1);
+    } else {
+      return null;
+    }
+  };
 
-    const { allowRegistration } = this.props.settings;
+  render() {
+    const { firstName, lastName } = this.props.profile;
+
+    const { isAuthenticated } = this.state;
 
     return (
-      <nav className="navbar navbar-expand-md navbar-dark shadow">
-        <Link to="/" className="navbar-brand">
+      <nav className="navbar navbar-expand navbar-dark">
+        <Link to="/" className="navbar-brand pl-2">
           ClientPanel
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarMain"
-        >
-          <i className="fas fa-bars" />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarMain">
+
+        <div className="collapse navbar-collapse pl-4">
           <ul className="navbar-nav mr-auto">
-            {isAuthenticated ? (
-              <li className="nav-item">
-                <Link to="/" className="nav-link">
-                  Dashboard
-                </Link>
-              </li>
-            ) : null}
+            <li className="nav-item active">
+              <Link to="/" className="nav-link">
+                Dashboard
+              </Link>
+            </li>
           </ul>
           {isAuthenticated ? (
-            <ul className="navbar-nav ml-auto navbar-links">
-              <li className="nav-item">
-                <a href="#!" className="nav-link">
-                  {auth.email}
+            <ul className="navbar-nav ml-auto pr-2">
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle btn btn-floating text-light account-btn"
+                  href="http://example.com"
+                  id="navbarDropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  {this.getInitials(firstName, lastName)}
                 </a>
-              </li>
-              <li className="nav-item">
-                <Link to="/settings" className="nav-link">
-                  Settings
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a href="#!" className="nav-link" onClick={this.onLogoutClick}>
-                  Logout
-                </a>
-              </li>
-            </ul>
-          ) : null}
-
-          {allowRegistration && !isAuthenticated ? (
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to="/login" className="nav-link">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/register" className="nav-link">
-                  Register
-                </Link>
+                <div className="dropdown-menu dropdown-menu-right shadow">
+                  <a href="#!" className="dropdown-item">
+                    Account
+                  </a>
+                  <Link to="/settings" className="dropdown-item">
+                    Settings
+                  </Link>
+                  <a
+                    href="#!"
+                    className="dropdown-item"
+                    onClick={this.onLogoutClick}
+                  >
+                    Logout
+                  </a>
+                </div>
               </li>
             </ul>
           ) : null}
@@ -106,6 +104,7 @@ export default compose(
   firebaseConnect(),
   connect((state, props) => ({
     auth: state.firebase.auth,
-    settings: state.settings
+    settings: state.settings,
+    profile: state.firebase.profile
   }))
 )(AppNavbar);
