@@ -40,7 +40,7 @@ export class Clients extends Component {
             <h3 className="align-self-end">
               <i className="fas fa-users" /> Clients
             </h3>
-            <h4 className="text-right text-secondary align-self-end">
+            <h4 className="text-right align-self-end">
               Total Owed:{' '}
               <span className="text-primary">
                 ${parseFloat(totalOwed).toFixed(2)}

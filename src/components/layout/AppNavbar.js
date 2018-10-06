@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
+import { setDarkTheme } from '../../actions/settingsActions';
 
 class AppNavbar extends Component {
   state = {
@@ -38,18 +39,25 @@ class AppNavbar extends Component {
     }
   };
 
+  darkThemeChange = () => {
+    const { setDarkTheme } = this.props;
+    setDarkTheme();
+  };
+
   render() {
     const { firstName, lastName } = this.props.profile;
+
+    const { darkTheme } = this.props.settings;
 
     const { isAuthenticated } = this.state;
 
     return (
-      <nav className="navbar navbar-expand navbar-dark">
+      <nav className="navbar navbar-expand-md navbar-dark">
         <Link to="/" className="navbar-brand pl-2">
           ClientPanel
         </Link>
 
-        <div className="collapse navbar-collapse pl-4">
+        <div className="collapse navbar-collapse">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <Link to="/" className="nav-link">
@@ -58,10 +66,10 @@ class AppNavbar extends Component {
             </li>
           </ul>
           {isAuthenticated ? (
-            <ul className="navbar-nav ml-auto pr-2">
+            <ul className="navbar-nav ml-auto">
               <li className="nav-item dropdown">
                 <a
-                  className="nav-link dropdown-toggle btn btn-floating text-light account-btn"
+                  className="nav-link dropdown-toggle btn shadow text-light account-btn"
                   href="http://example.com"
                   id="navbarDropdownMenuLink"
                   data-toggle="dropdown"
@@ -72,16 +80,29 @@ class AppNavbar extends Component {
                 </a>
                 <div className="dropdown-menu dropdown-menu-right shadow">
                   <a href="#!" className="dropdown-item">
+                    <i className="fas fa-user" />
                     Account
                   </a>
                   <Link to="/settings" className="dropdown-item">
+                    <i className="fas fa-cog" />
                     Settings
                   </Link>
+                  <a className="dropdown-item" onClick={this.darkThemeChange}>
+                    <i
+                      className="fas fa-toggle-on"
+                      style={{ marginRight: '5%' }}
+                    />
+                    DarkTheme:{' '}
+                    <span style={{ fontWeight: 'bold' }}>
+                      {darkTheme ? 'ON' : 'OFF'}
+                    </span>
+                  </a>
                   <a
                     href="#!"
                     className="dropdown-item"
                     onClick={this.onLogoutClick}
                   >
+                    <i className="fas fa-sign-out-alt" />
                     Logout
                   </a>
                 </div>
@@ -97,14 +118,18 @@ class AppNavbar extends Component {
 AppNavbar.propTypes = {
   firebase: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
-  settings: PropTypes.object.isRequired
+  settings: PropTypes.object.isRequired,
+  setDarkTheme: PropTypes.func.isRequired
 };
 
 export default compose(
   firebaseConnect(),
-  connect((state, props) => ({
-    auth: state.firebase.auth,
-    settings: state.settings,
-    profile: state.firebase.profile
-  }))
+  connect(
+    (state, props) => ({
+      auth: state.firebase.auth,
+      settings: state.settings,
+      profile: state.firebase.profile
+    }),
+    { setDarkTheme }
+  )
 )(AppNavbar);

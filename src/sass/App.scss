@@ -10,7 +10,7 @@ $scale: 4;
 @import 'colors';
 @import 'navbar';
 @import 'mixins';
-@import 'main';
+@import 'body';
 @import 'toggle';
 
 @include scaleHeaders($baseFontSize, $scale);
