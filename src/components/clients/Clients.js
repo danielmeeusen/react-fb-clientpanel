@@ -7,7 +7,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 import Rolling from '../layout/Rolling';
 
-export class Clients extends Component {
+class Clients extends Component {
   state = {
     totalOwed: null
   };
