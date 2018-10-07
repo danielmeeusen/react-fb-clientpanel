@@ -24,7 +24,12 @@ class Login extends Component {
         email,
         password
       })
-      .catch(err => notifyUser('Invalid Login Credentials', 'error'));
+      .catch(err =>
+        notifyUser(
+          'Username or Password was not correct.  Please try again.',
+          'error'
+        )
+      );
   };
 
   onChange = e => {
@@ -37,15 +42,14 @@ class Login extends Component {
       <div className="row mt">
         <div className="col-lg-6 col-md-8 col-sm-10 col-xs-12 mx-auto">
           <div className="card shadow">
+            <h1 className="text-center card-header">
+              <i className="fas fa-lock" /> Login
+            </h1>
             <div className="card-body">
               {message ? (
                 <Alert message={message} messageType={messageType} />
               ) : null}
-              <h1 className="text-center pb-4 pt-3">
-                <span className="text-primary">
-                  <i className="fas fa-lock" /> Login
-                </span>
-              </h1>
+
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
@@ -75,10 +79,11 @@ class Login extends Component {
                   value="Login"
                   className="btn btn-login btn-primary btn-block"
                 />
-                <div className="text-center mt-4">
-                  Don't have an account? <Link to="/register">Sign Up</Link>
-                </div>
               </form>
+
+              <div className="text-center mt-4">
+                Don't have an account? <Link to="/signup">Sign Up</Link>
+              </div>
             </div>
           </div>
         </div>

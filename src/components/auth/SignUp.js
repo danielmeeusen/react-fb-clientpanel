@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import { notifyUser } from '../../actions/notifyActions';
 import Alert from '../layout/Alert';
 
-class Register extends Component {
+class Signup extends Component {
   state = {
     email: '',
     password: ''
@@ -29,7 +30,7 @@ class Register extends Component {
     // register with firebase
     firebase
       .createUser({ email, password })
-      .catch(err => notifyUser('That User Already Exists', 'error'));
+      .catch(err => notifyUser('That email is already in use', 'error'));
   };
 
   onChange = e => {
@@ -42,15 +43,13 @@ class Register extends Component {
       <div className="row mt">
         <div className="col-lg-6 col-md-8 col-sm-10 col-xs-12 mx-auto">
           <div className="card shadow">
+            <h1 className="text-center card-header">
+              <i className="fas fa-user-plus" /> Signup
+            </h1>
             <div className="card-body">
               {message ? (
                 <Alert message={message} messageType={messageType} />
               ) : null}
-              <h1 className="text-center pb-4 pt-3">
-                <span className="text-primary">
-                  <i className="fas fa-lock" /> Register
-                </span>
-              </h1>
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
@@ -76,10 +75,13 @@ class Register extends Component {
                 </div>
                 <input
                   type="submit"
-                  value="Register"
+                  value="Signup"
                   className="btn btn-primary btn-block"
                 />
               </form>
+              <div className="text-center mt-4">
+                Already have an Account? <Link to="/login">Sign In</Link>
+              </div>
             </div>
           </div>
         </div>
@@ -88,7 +90,7 @@ class Register extends Component {
   }
 }
 
-Register.propTypes = {
+Signup.propTypes = {
   firebase: PropTypes.object.isRequired,
   notify: PropTypes.object.isRequired,
   notifyUser: PropTypes.func.isRequired
@@ -103,4 +105,4 @@ export default compose(
     }),
     { notifyUser }
   )
-)(Register);
+)(Signup);

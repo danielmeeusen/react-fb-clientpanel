@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -36,9 +35,6 @@ class AddClient extends Component {
     const { disableBalanceOnAdd } = this.props.settings;
     return (
       <div>
-        <Link to="/" className="btn btn-link">
-          <i className="fas fa-arrow-circle-left" /> Back To Dashboard
-        </Link>
         <div className="card shadow">
           <div className="card-header pb-1 pt-3">
             <h4 className="header-content"> Add Client </h4>

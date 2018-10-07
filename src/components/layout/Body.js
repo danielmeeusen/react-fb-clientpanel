@@ -18,8 +18,9 @@ import AddClient from './../clients/AddClient';
 import EditClient from './../clients/EditClient';
 import ClientDetails from './../clients/ClientDetails';
 import Login from './../auth/Login';
-import Register from './../auth/Register';
+import Signup from '../auth/SignUp';
 import Settings from './../settings/Settings';
+import Account from './../settings/Account';
 
 class Body extends Component {
   render() {
@@ -69,8 +70,13 @@ class Body extends Component {
                 />
                 <Route
                   exact
-                  path="/register"
-                  component={UserIsNotAuthenticated(Register)}
+                  path="/signup"
+                  component={UserIsNotAuthenticated(Signup)}
+                />
+                <Route
+                  exact
+                  path="/account"
+                  component={UserIsAuthenticated(Account)}
                 />
                 <Route
                   exact

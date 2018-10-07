@@ -50,8 +50,7 @@
   font-size: 22px;
   padding-left: 7px !important;
   padding-top: 7px !important;
-  border: none !important;
-  background-color: #ae64db; }
+  border: none !important; }
 
 .dropdown-toggle:after {
   display: none; }

@@ -50,6 +50,27 @@ class BrowserNav extends Component {
     const { darkTheme } = this.props.settings;
 
     const { isAuthenticated } = this.state;
+
+    const { photoURL } = this.props.auth;
+
+    let navdrop = {};
+
+    if (photoURL) {
+      navdrop = {
+        background: {
+          backgroundImage: `url(${photoURL})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '50px'
+        },
+        content: ''
+      };
+    } else {
+      navdrop = {
+        background: { backgroundColor: '#ae64db' },
+        content: this.getInitials(firstName, lastName)
+      };
+    }
+
     return (
       <nav className="navbar navbar-expand navbar-dark">
         <Link to="/" className="navbar-brand pl-2">
@@ -73,21 +94,22 @@ class BrowserNav extends Component {
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  style={navdrop.background}
                 >
-                  {this.getInitials(firstName, lastName)}
+                  {navdrop.content}
                 </a>
                 <div className="dropdown-menu dropdown-menu-right shadow">
-                  <a href="#!" className="dropdown-item">
+                  <Link to="/account" className="dropdown-item">
                     <i className="fas fa-user" />
                     Account
-                  </a>
+                  </Link>
                   <Link to="/settings" className="dropdown-item">
                     <i className="fas fa-cog" />
                     Settings
                   </Link>
                   <a className="dropdown-item" onClick={this.darkThemeChange}>
                     <i
-                      className="fas fa-toggle-on"
+                      className={darkTheme ? 'fas fa-moon' : 'far fa-moon'}
                       style={{ marginRight: '5%' }}
                     />
                     DarkTheme:{' '}

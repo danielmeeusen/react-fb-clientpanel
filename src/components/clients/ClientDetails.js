@@ -67,13 +67,9 @@ class ClientDetails extends Component {
     if (client) {
       return (
         <div>
-          <div className="row">
-            <div className="col-md-6">
-              <Link to="/" className="btn btn-link">
-                <i className="fas fa-arrow-circle-left" /> Back To Dashboard
-              </Link>
-            </div>
-            <div className="col-md-6">
+          <div className="card shadow">
+            <h3 className="card-header">
+              {client.firstName} {client.lastName}
               <div className="btn-group float-right mr-2">
                 <Link
                   to={`/client/edit/${client.id}`}
@@ -88,12 +84,8 @@ class ClientDetails extends Component {
                   Delete
                 </button>
               </div>
-            </div>
-          </div>
-          <div className="card shadow">
-            <h3 className="card-header">
-              {client.firstName} {client.lastName}
             </h3>
+
             <div className="card-body">
               <div className="row">
                 <div className="col-md-8 col-sm-6">

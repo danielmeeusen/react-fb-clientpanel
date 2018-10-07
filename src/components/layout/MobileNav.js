@@ -51,6 +51,26 @@ class MobileNav extends Component {
 
     const { isAuthenticated } = this.state;
 
+    const { photoURL } = this.props.auth;
+
+    let navdrop = {};
+
+    if (photoURL) {
+      navdrop = {
+        background: {
+          backgroundImage: `url(${photoURL})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '50px'
+        },
+        content: ''
+      };
+    } else {
+      navdrop = {
+        background: { backgroundColor: '#ae64db' },
+        content: this.getInitials(firstName, lastName)
+      };
+    }
+
     return (
       <nav className="navbar navbar-expand-md navbar-dark">
         <Link to="/" className="navbar-brand">
@@ -64,8 +84,9 @@ class MobileNav extends Component {
           aria-controls="navbarNavDropdown"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          style={navdrop.background}
         >
-          {this.getInitials(firstName, lastName)}
+          {navdrop.content}
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav mr-auto">
@@ -75,10 +96,10 @@ class MobileNav extends Component {
                   <i className="fas fa-home" />
                   Home
                 </Link>
-                <a href="#!" className="nav-link dropdown-item">
+                <Link to="/account" className="nav-link dropdown-item">
                   <i className="fas fa-user" />
                   Account
-                </a>
+                </Link>
                 <Link to="/settings" className="nav-link dropdown-item">
                   <i className="fas fa-cog" />
                   Settings
@@ -88,7 +109,7 @@ class MobileNav extends Component {
                   onClick={this.darkThemeChange}
                 >
                   <i
-                    className="fas fa-toggle-on"
+                    className={darkTheme ? 'fas fa-moon' : 'far fa-moon'}
                     style={{ marginRight: '5%' }}
                   />
                   DarkTheme:{' '}
