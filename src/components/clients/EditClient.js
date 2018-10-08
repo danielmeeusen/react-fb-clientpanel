@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import Rolling from '../layout/Rolling';
+import Rolling from '../layout/loading/Rolling';
 
 export class EditClient extends Component {
   constructor(props) {

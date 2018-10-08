@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import classnames from 'classnames';
-import Rolling from '../layout/Rolling';
+import Rolling from '../layout/loading/Rolling';
 
 class ClientDetails extends Component {
   state = {

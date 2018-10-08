@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 
-import Rolling from '../layout/Rolling';
+import Rolling from '../layout/loading/Rolling';
 
 class Clients extends Component {
   state = {
@@ -42,18 +42,18 @@ class Clients extends Component {
             </h3>
             <h4 className="text-right align-self-end">
               Total Owed:{' '}
-              <span className="text-primary">
+              <span className="text-danger">
                 ${parseFloat(totalOwed).toFixed(2)}
               </span>
             </h4>
             <h3>
-              <Link to="/client/add" className="btn btn-success">
+              <Link to="/client/add" className="btn shadow btn-success">
                 Add Client
               </Link>
             </h3>
           </div>
 
-          <table className="table table-striped">
+          <table className="clients table table-striped">
             <thead className="thead-inverse">
               <tr>
                 <th>Name</th>

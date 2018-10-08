@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 
 export class Account extends Component {
+  state = {
+    editAccount: false
+  };
+
   updateUserAccount = () => {
     const { firebase } = this.props;
 
@@ -12,7 +16,6 @@ export class Account extends Component {
 
     user
       .updateProfile({
-        displayName: 'Jane Q. User',
         photoURL:
           'https://firebasestorage.googleapis.com/v0/b/react-client-panel-49a4a.appspot.com/o/IMG_4193.JPG?alt=media&token=3dee0707-3ecc-48ff-9e3e-aa16e0a17959'
       })
@@ -27,14 +30,42 @@ export class Account extends Component {
   render() {
     const firebase = this.props;
 
-    const profilePhoto = firebase.auth.photoURL;
+    const {
+      photoURL,
+      displayName,
+      email,
+      emailVerified,
+      phoneNumber
+    } = this.props.auth;
+
+    const { firstName, lastName } = this.props.profile;
 
     return (
-      <div>
-        <button onClick={this.updateUserAccount}>click me</button>
-        <div className="card">
-          <div className="card-body">
-            <img src={profilePhoto} width="200" alt="" />
+      <div className="card shadow">
+        <h4 className="card-header">Account Settings</h4>
+        <div className="card-body">
+          <div className="col-6 mx-auto">
+            <div
+              className="account-img mx-auto"
+              style={{ backgroundImage: `url(${photoURL})` }}
+            />
+            <div className="account-details">
+              <h1>
+                {firstName} {lastName}
+              </h1>
+              <p>
+                Email: <b>{email}</b>
+              </p>
+              <p>
+                Display Name: <b>{displayName}</b>
+              </p>
+              <p>
+                Position: <b>Owner</b>
+              </p>
+              <p>
+                email: <b>{displayName}</b>
+              </p>
+            </div>
           </div>
         </div>
       </div>

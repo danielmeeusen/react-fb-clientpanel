@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -39,75 +38,68 @@ class Settings extends Component {
     } = this.props.settings;
 
     return (
-      <div>
-        <div className="col-lg-10 mx-auto">
-          <Link to="/" className="btn btn-link">
-            <i className="fas fa-arrow-circle-left" /> Back to Dashboard
-          </Link>
-        </div>
-        <div className="col-lg-10 mx-auto">
-          <div className="card shadow">
-            <h5 className="card-header">Edit Settings</h5>
-            <div className="card-body">
-              <div className="settings">
-                <form>
-                  <div className="slide-label d-flex justify-content-between border-bottom">
-                    Dark Theme
-                    <label className="switch">
-                      <input
-                        type="checkbox"
-                        id="checkbox"
-                        name="darkTheme"
-                        checked={!!darkTheme}
-                        onChange={this.darkThemeChange}
-                      />
-                      <div className="slider round" />
-                    </label>
-                  </div>
+      <div className="col-lg-10 mx-auto">
+        <div className="card shadow">
+          <h5 className="card-header">Edit Settings</h5>
+          <div className="card-body">
+            <div className="settings">
+              <form>
+                <div className="slide-label d-flex justify-content-between border-bottom">
+                  Dark Theme
+                  <label className="switch">
+                    <input
+                      type="checkbox"
+                      id="checkbox"
+                      name="darkTheme"
+                      checked={!!darkTheme}
+                      onChange={this.darkThemeChange}
+                    />
+                    <div className="slider round" />
+                  </label>
+                </div>
 
-                  <div className="slide-label d-flex justify-content-between border-bottom">
-                    Allow Registration
-                    <label className="switch">
-                      <input
-                        type="checkbox"
-                        id="checkbox"
-                        name="allowRegistration"
-                        checked={!!allowRegistration}
-                        onChange={this.allowRegistrationChange}
-                      />
-                      <div className="slider round" />
-                    </label>
-                  </div>
+                <div className="slide-label d-flex justify-content-between border-bottom">
+                  Allow Registration
+                  <label className="switch">
+                    <input
+                      type="checkbox"
+                      id="checkbox"
+                      name="allowRegistration"
+                      checked={!!allowRegistration}
+                      onChange={this.allowRegistrationChange}
+                    />
+                    <div className="slider round" />
+                  </label>
+                </div>
 
-                  <div className="slide-label d-flex justify-content-between border-bottom">
-                    Disable Balance on Add
-                    <label className="switch">
-                      <input
-                        type="checkbox"
-                        id="checkbox"
-                        name="disableBalanceOnAdd"
-                        checked={!!disableBalanceOnAdd}
-                        onChange={this.disableBalanceOnAddChange}
-                      />
-                      <div className="slider round" />
-                    </label>
-                  </div>
+                <div className="slide-label d-flex justify-content-between border-bottom">
+                  Disable Balance on Add
+                  <label className="switch">
+                    <input
+                      type="checkbox"
+                      id="checkbox"
+                      name="disableBalanceOnAdd"
+                      checked={!!disableBalanceOnAdd}
+                      onChange={this.disableBalanceOnAddChange}
+                    />
+                    <div className="slider round" />
+                  </label>
+                </div>
 
-                  <div className="slide-label d-flex justify-content-between border-bottom">
-                    Disable Balance on Edit
-                    <label className="switch">
-                      <input
-                        type="checkbox"
-                        id="checkbox"
-                        name="disableBalanceOnEdit"
-                        checked={!!disableBalanceOnEdit}
-                        onChange={this.disableBalanceOnEditChange}
-                      />
-                      <div className="slider round" />
-                    </label>
-                  </div>
-                </form>
-              </div>
+                <div className="slide-label d-flex justify-content-between border-bottom">
+                  Disable Balance on Edit
+                  <label className="switch">
+                    <input
+                      type="checkbox"
+                      id="checkbox"
+                      name="disableBalanceOnEdit"
+                      checked={!!disableBalanceOnEdit}
+                      onChange={this.disableBalanceOnEditChange}
+                    />
+                    <div className="slider round" />
+                  </label>
+                </div>
+              </form>
             </div>
           </div>
         </div>

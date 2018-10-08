@@ -8,10 +8,14 @@
   background-color: #ebebeb !important; }
 
 .Light .dropdown-item {
-  color: rgba(0, 0, 0, 0.65) !important; }
+  color: rgba(0, 0, 0, 0.75) !important; }
 
 .Light .dropdown-item:hover {
   background-color: #ffffff; }
+
+.Light .card-header {
+  color: rgba(0, 0, 0, 0.65);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.65); }
 
 .Dark .navbar {
   background-color: #2b2b40; }
@@ -19,10 +23,14 @@
 .Dark .card {
   background-color: #2b2b40; }
 
-.Dark .form-control,
-.Dark .list-group-item {
+.Dark .form-control {
   background-color: #555580 !important;
   border: none !important;
+  color: white; }
+
+.Dark .list-group-item {
+  background-color: #2b2b40 !important;
+  border: none;
   color: white; }
 
 .Dark .dropdown-menu {
@@ -34,6 +42,27 @@
 .Dark .dropdown-item:hover {
   background-color: #5c6578; }
 
+.Dark .card-header {
+  color: rgba(255, 255, 255, 0.65);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65); }
+
+.account-details {
+  text-align: center; }
+  .account-details h1 {
+    margin-bottom: 2%; }
+  .account-details b {
+    padding-left: 2%;
+    font-weight: 600; }
+  .account-details p {
+    line-height: 16px; }
+
+.account-img {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
 .navbar-brand {
   margin-left: 2%; }
 
@@ -42,6 +71,9 @@
 
 .navbar-nav {
   margin-right: 1%; }
+
+.navbar {
+  height: 60px; }
 
 .dropdown-toggle {
   border-radius: 50%;
@@ -120,8 +152,8 @@ html {
   margin-left: 10px;
   font-weight: 200; }
 
-.table th,
-.table td {
+.clients.table th,
+.clients.table td {
   padding-left: 5%; }
 
 .settings {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
-import { setDarkTheme } from '../../actions/settingsActions';
+import { setDarkTheme } from '../../../actions/settingsActions';
 
 class BrowserNav extends Component {
   state = {
