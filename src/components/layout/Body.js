@@ -6,7 +6,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import AppNavbar from './nav/AppNavbar';
+import AppNavbar from './navs/AppNavbar';
 import StyleHelmet from './StyleHelmet';
 import Routes from './Routes';
 

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import windowSize from 'react-window-size';
 
-import MobileNav from './MobileNav';
-import BrowserNav from './BrowserNav';
+import MobileTopNavDrop from './MobileTopNavDrop';
+import TopNavDrop from './TopNavDrop';
 
 class AppNavbar extends Component {
   render() {
     if (this.props.windowWidth > 768) {
-      return <BrowserNav />;
+      return <TopNavDrop />;
     } else {
-      return <MobileNav />;
+      return <MobileTopNavDrop />;
     }
   }
 }
