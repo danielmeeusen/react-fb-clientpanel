@@ -1,18 +1,13 @@
+.navbar {
+  height: 55px;
+}
+
 .navbar-brand {
   margin-left: 2%;
 }
 
-.navbar-links {
-  margin-right: 2%;
-}
-
-.navbar-nav {
-  margin-right: 1%;
-}
-
-.navbar {
-  height: 60px;
-  min-width: 100%;
+.account-btn {
+  margin-right: 1.5vw;
 }
 
 .dropdown-toggle {
@@ -26,27 +21,50 @@
 }
 
 .dropdown-toggle:after {
-  display: none;
+  display: none !important;
 }
-
-.dropdown-menu {
-  width: 225px !important;
-}
-
-.dropdown-item {
-  i {
-    margin-right: 10%;
+.dropdown {
+  .dropdown-menu {
+    width: 225px !important;
   }
-  height: 60px;
-  padding-left: 10%;
-  padding-right: 15%;
-  font-size: 18px;
-  padding-top: 15px;
-  font-weight: 600;
-  border-bottom: 1px solid;
+  .dropdown-item {
+    i {
+      margin-right: 10%;
+    }
+    height: 60px;
+    padding-left: 10%;
+    padding-right: 15%;
+    font-size: 18px;
+    padding-top: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid;
+  }
+}
+
+.dropup {
+  .dropdown-menu {
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .dropdown-item {
+    i {
+      margin-right: 10%;
+    }
+    height: 60px;
+    padding-left: 40%;
+    padding-right: 15%;
+    font-size: 18px;
+    padding-top: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid;
+  }
 }
 
 .nav-link {
+  i {
+    font-size: 36px;
+  }
   color: rgba(255, 255, 255, 0.85) !important;
 }
 

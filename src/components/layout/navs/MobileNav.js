@@ -66,48 +66,51 @@ class MobileNav extends Component {
       };
     } else {
       navdrop = {
-        background: { backgroundColor: '#ae64db' },
+        background: { backgroundColor: '!#ae64db' },
         content: this.getInitials(firstName, lastName)
       };
     }
 
     return (
-      <nav className="navbar navbar-expand-md navbar-dark">
-        <Link to="/" className="navbar-brand">
-          ClientPanel
-        </Link>
-        <button
-          className="dropdown-toggle btn shadow text-light account-btn"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          style={navdrop.background}
-        >
-          {navdrop.content}
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav mr-auto">
-            {isAuthenticated ? (
-              <li className="nav-item">
-                <Link to="/" className="nav-link dropdown-item">
-                  <i className="fas fa-home" />
-                  Home
-                </Link>
-                <Link to="/account" className="nav-link dropdown-item">
+      <nav className="navbar fixed-bottom navbar-expand navbar-dark">
+        {isAuthenticated ? (
+          <ul className="navbar-nav w-100 d-flex justify-content-between">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                <i className="fas fa-home" />
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                <i className="fas fa-envelope" />
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                <i className="fas fa-bell" />
+              </Link>
+            </li>
+            <li className="nav-item dropup position-static">
+              <a
+                className="dropdown-toggle btn text-light account-btn"
+                id="navbarDropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                style={navdrop.background}
+              >
+                {navdrop.content}
+              </a>
+              <div className="dropdown-menu w-100">
+                <Link to="/account" className="dropdown-item">
                   <i className="fas fa-user" />
                   Account
                 </Link>
-                <Link to="/settings" className="nav-link dropdown-item">
+                <Link to="/settings" className="dropdown-item">
                   <i className="fas fa-cog" />
                   Settings
                 </Link>
-                <a
-                  className="nav-link dropdown-item"
-                  onClick={this.darkThemeChange}
-                >
+                <a className="dropdown-item" onClick={this.darkThemeChange}>
                   <i
                     className={darkTheme ? 'fas fa-moon' : 'far fa-moon'}
                     style={{ marginRight: '5%' }}
@@ -119,16 +122,16 @@ class MobileNav extends Component {
                 </a>
                 <a
                   href="#!"
-                  className="nav-link dropdown-item"
+                  className="dropdown-item"
                   onClick={this.onLogoutClick}
                 >
                   <i className="fas fa-sign-out-alt" />
                   Logout
                 </a>
-              </li>
-            ) : null}
+              </div>
+            </li>
           </ul>
-        </div>
+        ) : null}
       </nav>
     );
   }

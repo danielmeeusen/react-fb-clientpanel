@@ -28,15 +28,7 @@ export class Account extends Component {
   };
 
   render() {
-    const firebase = this.props;
-
-    const {
-      photoURL,
-      displayName,
-      email,
-      emailVerified,
-      phoneNumber
-    } = this.props.auth;
+    const { photoURL, displayName, email } = this.props.auth;
 
     const { firstName, lastName } = this.props.profile;
 

@@ -75,6 +75,4 @@ if (process.env.NODE_ENV === 'production') {
   );
 }
 
-console.log(store);
-
 export default store;

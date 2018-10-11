@@ -21,7 +21,7 @@ class Body extends Component {
           <AppNavbar />
           <StyleHelmet />
           <div className="row">
-            <div className="col-xl-8 col-md-10 col-sm-12 mx-auto">
+            <div className="col-xl-8 col-md-10 col-sm-12 my-auto mx-auto">
               <Routes />
             </div>
           </div>
