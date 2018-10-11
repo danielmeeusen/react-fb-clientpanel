@@ -9,7 +9,7 @@ class AppNavbar extends Component {
     if (this.props.windowWidth > 768) {
       return <TopNavDrop />;
     } else {
-      return <MobileTopNavDrop />;
+      return <TopNavDrop />;
     }
   }
 }

@@ -19,6 +19,7 @@ import Login from './../auth/Login';
 import Signup from '../auth/SignUp';
 import Settings from './../settings/Settings';
 import Account from './../settings/Account';
+import NotFound from './NotFound';
 
 class Routes extends Component {
   render() {
@@ -52,6 +53,7 @@ class Routes extends Component {
           path="/settings"
           component={UserIsAuthenticated(Settings)}
         />
+        <Route component={NotFound} />
       </Switch>
     );
   }

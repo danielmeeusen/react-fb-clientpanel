@@ -18,9 +18,9 @@ class Body extends Component {
     return (
       <Router>
         <div className={theme}>
-          <StyleHelmet />
           <AppNavbar />
-          <div className="cont">
+          <StyleHelmet />
+          <div className="row">
             <div className="col-xl-8 col-md-10 col-sm-12 mx-auto">
               <Routes />
             </div>

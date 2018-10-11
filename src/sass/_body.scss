@@ -1,17 +1,13 @@
-html {
-  min-width: 560px;
-}
-
-.cont {
-  margin-top: 5%;
+body {
+  font-size: $baseFontSize;
 }
 
 .mt {
-  margin-top: 10%;
+  margin-top: 10vh;
 }
 
 .rollingDark {
-  padding-top: 20%;
+  padding-top: 20vh;
   display: block;
   margin-left: auto;
   margin-right: auto;

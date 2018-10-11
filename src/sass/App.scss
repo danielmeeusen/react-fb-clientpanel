@@ -4,14 +4,14 @@ $mdBreak: 992px;
 $lgBreak: 1200px;
 
 // font sizes
-$baseFontSize: 18px;
+$baseFontSize: 16px;
 $scale: 4;
 
 @import 'colors';
+@import 'body';
 @import 'account';
 @import 'navbar';
 @import 'mixins';
-@import 'body';
 @import 'toggle';
 
 @include scaleHeaders($baseFontSize, $scale);

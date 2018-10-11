@@ -1,13 +1,13 @@
 @media screen and (max-width: $mdBreak) {
-  $baseFontSize: 17px;
-  $scale: 4;
+  $baseFontSize: 15px;
+  $scale: 3;
 
   @include scaleHeaders($baseFontSize, $scale);
 }
 
 @media screen and (max-width: $smBreak) {
-  $baseFontSize: 16px;
-  $scale: 4;
+  $baseFontSize: 14px;
+  $scale: 2;
 
   @include scaleHeaders($baseFontSize, $scale);
 
