@@ -42,30 +42,28 @@ export class Account extends Component {
 
     return (
       <div className="card shadow">
-        <h4 className="card-header">Account Settings</h4>
-        <div className="card-body">
-          <div className="col-6 mx-auto">
-            <div
-              className="account-img mx-auto"
-              style={{ backgroundImage: `url(${photoURL})` }}
-            />
-            <div className="account-details">
-              <h1>
-                {firstName} {lastName}
-              </h1>
-              <p>
-                Email: <b>{email}</b>
-              </p>
-              <p>
-                Display Name: <b>{displayName}</b>
-              </p>
-              <p>
-                Position: <b>Owner</b>
-              </p>
-              <p>
-                email: <b>{displayName}</b>
-              </p>
-            </div>
+        <h4 className="card-header">Account</h4>
+        <div className="card-body text-center mx-auto">
+          <div
+            className="account-img"
+            style={{ backgroundImage: `url(${photoURL})` }}
+          />
+          <div className="account-details">
+            <h1>
+              {firstName} {lastName}
+            </h1>
+            <p>
+              Email: <b>{email}</b>
+            </p>
+            <p>
+              Display Name: <b>{displayName}</b>
+            </p>
+            <p>
+              Position: <b>Owner</b>
+            </p>
+            <p>
+              email: <b>{displayName}</b>
+            </p>
           </div>
         </div>
       </div>

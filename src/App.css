@@ -96,15 +96,15 @@ body {
   margin-left: 5%;
   margin-right: 10%; }
 
-.account-details {
-  text-align: center; }
-  .account-details h1 {
-    margin-bottom: 2%; }
-  .account-details b {
-    padding-left: 2%;
-    font-weight: 600; }
-  .account-details p {
-    line-height: 16px; }
+.account-details h1 {
+  margin-bottom: 2%; }
+
+.account-details b {
+  padding-left: 2%;
+  font-weight: 600; }
+
+.account-details p {
+  line-height: 16px; }
 
 .account-img {
   border-radius: 50%;

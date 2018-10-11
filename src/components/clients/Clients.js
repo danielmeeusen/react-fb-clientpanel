@@ -35,7 +35,7 @@ class Clients extends Component {
 
     if (clients) {
       return (
-        <div className="card shadow my-auto">
+        <div className="card shadow">
           <div className="card-header d-flex justify-content-between">
             <h3 className="align-self-end">
               <i className="fas fa-users" /> Clients

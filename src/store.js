@@ -58,9 +58,9 @@ if (localStorage.getItem('settings') == null) {
 const initialState = { settings: JSON.parse(localStorage.getItem('settings')) };
 
 // create store
-let store = '';
+let store;
 
-if (process.env == 'production') {
+if (process.env.NODE_ENV === 'production') {
   store = createStoreWithFirebase(
     rootReducer,
     initialState,
@@ -74,5 +74,7 @@ if (process.env == 'production') {
       window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 }
+
+console.log(store);
 
 export default store;
