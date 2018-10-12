@@ -1,9 +1,19 @@
-html {
+.Light,
+.Dark {
   overflow: hidden;
+  font-size: $baseFontSize;
+  height: 100vh;
 }
 
-body {
+.Splash {
+  overflow: hidden;
   font-size: $baseFontSize;
+  height: 100vh;
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25)),
+    url('https://firebasestorage.googleapis.com/v0/b/react-client-panel-49a4a.appspot.com/o/layout%2Ftop-view-businessman-sitting-office-footage-073318654_prevstill.jpeg?alt=media&token=8d34c258-78da-476b-b870-e18b5ec3974c');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .mt {

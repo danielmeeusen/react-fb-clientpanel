@@ -7,22 +7,6 @@ import { firebaseConnect } from 'react-redux-firebase';
 import { setDarkTheme } from '../../../actions/settingsActions';
 
 class MobileNav extends Component {
-  state = {
-    isAuthenticated: false
-  };
-
-  static getDerivedStateFromProps(props, state) {
-    const { auth } = props;
-
-    if (auth.uid) {
-      return {
-        isAuthenticated: true
-      };
-    } else {
-      return { isAuthenticated: false };
-    }
-  }
-
   onLogoutClick = e => {
     e.preventDefault();
 
@@ -49,9 +33,9 @@ class MobileNav extends Component {
 
     const { darkTheme } = this.props.settings;
 
-    const { isAuthenticated } = this.state;
+    const { photoURL, isEmpty, isLoaded } = this.props.auth;
 
-    const { photoURL } = this.props.auth;
+    const isAuthenticated = !isEmpty && isLoaded;
 
     let navdrop = {};
 
@@ -60,7 +44,7 @@ class MobileNav extends Component {
         background: {
           backgroundImage: `url(${photoURL})`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: '50px'
+          backgroundSize: '42px'
         },
         content: ''
       };
@@ -72,7 +56,7 @@ class MobileNav extends Component {
     }
 
     return (
-      <nav className="navbar fixed-bottom navbar-expand navbar-dark">
+      <nav className="mobile navbar fixed-bottom navbar-expand navbar-dark">
         {isAuthenticated ? (
           <ul className="navbar-nav w-100 d-flex justify-content-between">
             <li className="nav-item">

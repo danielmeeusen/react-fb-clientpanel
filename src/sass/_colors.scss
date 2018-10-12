@@ -26,6 +26,7 @@ $inputDark: #555580;
 
 // rules
 .Light {
+  background-color: $backgroundLight;
   .navbar {
     background-color: $navbarLight;
   }
@@ -48,6 +49,8 @@ $inputDark: #555580;
 }
 
 .Dark {
+  background-color: $backgroundDark;
+  color: $textDark;
   .navbar {
     background-color: $navbarDark;
   }

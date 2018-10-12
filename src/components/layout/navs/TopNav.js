@@ -7,22 +7,6 @@ import { firebaseConnect } from 'react-redux-firebase';
 import { setDarkTheme } from '../../../actions/settingsActions';
 
 class BrowserNav extends Component {
-  state = {
-    isAuthenticated: false
-  };
-
-  static getDerivedStateFromProps(props, state) {
-    const { auth } = props;
-
-    if (auth.uid) {
-      return {
-        isAuthenticated: true
-      };
-    } else {
-      return { isAuthenticated: false };
-    }
-  }
-
   onLogoutClick = e => {
     e.preventDefault();
 
@@ -44,14 +28,21 @@ class BrowserNav extends Component {
     setDarkTheme();
   };
 
+  getProfilePhoto = () => {};
+
   render() {
     const { firstName, lastName } = this.props.profile;
 
     const { darkTheme } = this.props.settings;
 
-    const { isAuthenticated } = this.state;
+    const { photoURL, isEmpty, isLoaded } = this.props.auth;
 
-    const { photoURL } = this.props.auth;
+    const isAuthenticated = !isEmpty && isLoaded;
+
+    const badges = {
+      messages: '1',
+      notifications: ''
+    };
 
     let navdrop = {};
 
@@ -60,7 +51,7 @@ class BrowserNav extends Component {
         background: {
           backgroundImage: `url(${photoURL})`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: '50px'
+          backgroundSize: '38px'
         },
         content: ''
       };
@@ -72,13 +63,13 @@ class BrowserNav extends Component {
     }
 
     return (
-      <nav className="navbar navbar-expand navbar-dark">
-        <Link to="/" className="navbar-brand pl-2">
+      <nav className="full navbar navbar-expand navbar-dark">
+        <Link to="/" className="navbar-brand">
           ClientPanel
         </Link>
 
         <div className="collapse navbar-collapse">
-          <ul className="navbar-nav mr-auto">
+          <ul className="navbar-nav">
             <li className="nav-item active">
               <Link to="/" className="nav-link">
                 Dashboard
@@ -86,7 +77,21 @@ class BrowserNav extends Component {
             </li>
           </ul>
           {isAuthenticated ? (
-            <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav right-bar ml-auto d-flex justify-content-around">
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  <i className="fas fa-envelope" />
+                  <span className="badge badge-notify">{badges.messages}</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  <i className="fas fa-bell" />
+                  <span className="badge badge-notify">
+                    {badges.notifications}
+                  </span>
+                </Link>
+              </li>
               <li className="nav-item dropdown">
                 <a
                   className="dropdown-toggle btn shadow text-light account-btn"
