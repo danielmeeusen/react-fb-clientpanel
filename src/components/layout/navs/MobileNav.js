@@ -44,7 +44,7 @@ class MobileNav extends Component {
         background: {
           backgroundImage: `url(${photoURL})`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: '42px'
+          backgroundSize: '34px'
         },
         content: ''
       };

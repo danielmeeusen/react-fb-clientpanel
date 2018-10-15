@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -45,14 +44,7 @@ export class EditClient extends Component {
 
     if (client) {
       return (
-        <div>
-          <div className="row">
-            <div className="col-md-6">
-              <Link to="/" className="btn btn-link">
-                <i className="fas fa-arrow-circle-left" /> Back To Dashboard
-              </Link>
-            </div>
-          </div>
+        <div className="col-xl-8 col-md-10 col-sm-12 mt mx-auto">
           <div className="card shadow">
             <h4 className="card-header">Edit Client</h4>
             <div className="card-body">

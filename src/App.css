@@ -7,12 +7,12 @@
   .Light .dropdown-menu {
     background-color: #ebebeb !important; }
   .Light .dropdown-item {
-    color: rgba(0, 0, 0, 0.75) !important; }
+    color: rgba(0, 0, 0, 0.85) !important; }
   .Light .dropdown-item:hover {
     background-color: #ffffff; }
   .Light .card-header {
-    color: rgba(0, 0, 0, 0.65);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.65); }
+    color: rgba(0, 0, 0, 0.85);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.75); }
 
 .Dark {
   background-color: #151520;
@@ -32,12 +32,16 @@
   .Dark .dropdown-menu {
     background-color: #383d48 !important; }
   .Dark .dropdown-item {
-    color: rgba(255, 255, 255, 0.75) !important; }
+    color: rgba(255, 255, 255, 0.85) !important; }
   .Dark .dropdown-item:hover {
     background-color: #5c6578; }
   .Dark .card-header {
-    color: rgba(255, 255, 255, 0.65);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.65); }
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.75); }
+
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif; }
 
 .Light,
 .Dark {
@@ -56,28 +60,6 @@
 
 .mt {
   margin-top: 10vh; }
-
-.rollingDark {
-  padding-top: 20vh;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 120px; }
-
-.rolling-text-dark {
-  font-size: 20px !important;
-  color: aqua; }
-
-.rollingLight {
-  padding-top: 20%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 120px; }
-
-.rolling-text-dark {
-  font-size: 20px !important;
-  color: #151520; }
 
 .btn-primary {
   background-color: #0091d5 !important;
@@ -101,48 +83,52 @@
   margin-left: 5%;
   margin-right: 10%; }
 
-.account-details h1 {
-  margin-bottom: 2%; }
+.rollingDark {
+  padding-top: 20vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px; }
 
-.account-details b {
-  padding-left: 2%;
-  font-weight: 600; }
+.rolling-text-dark {
+  font-size: 20px !important;
+  color: aqua; }
 
-.account-details p {
-  line-height: 16px; }
+.rollingLight {
+  padding-top: 20vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px; }
 
-.account-img {
-  border-radius: 50%;
-  width: 250px;
-  height: 250px;
-  background-repeat: no-repeat;
-  background-size: cover; }
-
-.full .navbar {
-  height: 0px; }
+.rolling-text-light {
+  font-size: 20px !important;
+  color: #151520; }
 
 .full .navbar-brand {
-  margin-left: 2%; }
+  margin-left: 2%;
+  padding: 0; }
 
 .full .right-bar {
-  width: 260px; }
+  margin-right: 30px;
+  width: 160px; }
 
 .full .badge-notify {
+  font-family: Arial, Helvetica, sans-serif;
+  float: right;
   font-size: 12px;
-  background: rgba(225, 50, 100, 0.85);
+  background: rgba(255, 100, 50, 0.85);
   position: relative;
-  top: -12px;
-  left: -10px;
+  left: -8px;
+  top: -8px;
   border-radius: 50%; }
-
-.full .account-btn {
-  margin-right: 1.5vw; }
 
 .full .nav-link {
   padding: 0;
+  margin: 0;
   color: rgba(255, 255, 255, 0.85) !important; }
   .full .nav-link i {
-    font-size: 22px;
+    font-size: 20px;
     padding-top: 10px; }
 
 .full .nav-link:hover {
@@ -150,36 +136,35 @@
 
 .full .dropdown-toggle {
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
-  font-size: 22px;
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 18px;
   padding-left: 5px !important;
-  padding-top: 5px !important;
-  border: 1px solid rgba(255, 255, 255, 0.65); }
+  padding-top: 5px !important; }
 
 .full .dropdown-toggle:hover {
-  border: 2px solid white; }
+  border: 2px solid rgba(255, 255, 255, 0.75); }
 
 .full .dropdown-toggle:after {
   display: none !important; }
 
 .full .dropdown .dropdown-menu {
-  width: 225px !important;
+  width: 200px !important;
   padding: 0; }
 
 .full .dropdown .dropdown-item {
-  height: 60px;
-  padding-left: 10%;
+  height: 50px;
+  padding-left: 15%;
   padding-right: 15%;
-  font-size: 18px;
-  padding-top: 15px;
+  font-size: 16px;
+  padding-top: 14px;
   font-weight: 600;
   border-top: 1px solid; }
   .full .dropdown .dropdown-item i {
     margin-right: 10%; }
 
 .mobile .navbar {
-  height: 45px; }
+  height: 0px; }
 
 .mobile .navbar-brand {
   margin-left: 2%; }
@@ -199,12 +184,11 @@
 
 .mobile .dropdown-toggle {
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 36px !important;
+  height: 36px !important;
   font-size: 22px;
   padding-left: 5px !important;
-  padding-top: 5px !important;
-  border: 2px solid rgba(255, 255, 255, 0.65); }
+  padding-top: 5px !important; }
 
 .mobile .dropdown-toggle:hover {
   border: 2px solid white; }
@@ -227,6 +211,23 @@
   border-bottom: 1px solid; }
   .mobile .dropup .dropdown-item i {
     margin-right: 10%; }
+
+.account-details h1 {
+  margin-bottom: 2%; }
+
+.account-details b {
+  padding-left: 2%;
+  font-weight: 600; }
+
+.account-details p {
+  line-height: 16px; }
+
+.account-img {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 .switch {
   display: inline-block;

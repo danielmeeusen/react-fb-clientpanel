@@ -11,27 +11,15 @@ import Routes from './Routes';
 
 class Body extends Component {
   render() {
-    const { isEmpty, isLoaded } = this.props.auth;
-    const isAuthenticated = !isEmpty && isLoaded;
-
     const { darkTheme } = this.props.settings;
-    const theme = darkTheme
-      ? isAuthenticated
-        ? 'Dark'
-        : 'Light Splash'
-      : isAuthenticated
-        ? 'Light'
-        : 'Light Splash';
+
+    const theme = darkTheme ? 'Dark' : 'Light';
 
     return (
       <Router>
         <div className={theme}>
           <AppNavbar />
-          <div className="row">
-            <div className="col-xl-8 col-md-10 col-sm-12 mt mx-auto">
-              <Routes />
-            </div>
-          </div>
+          <Routes />
         </div>
       </Router>
     );

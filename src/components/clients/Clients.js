@@ -35,53 +35,55 @@ class Clients extends Component {
 
     if (clients) {
       return (
-        <div className="card card-block shadow">
-          <div className="card-header d-flex justify-content-between">
-            <h3 className="align-self-end">
-              <i className="fas fa-users" /> Clients
-            </h3>
-            <h4 className="text-right align-self-end">
-              Total Owed:{' '}
-              <span className="text-danger">
-                ${parseFloat(totalOwed).toFixed(2)}
-              </span>
-            </h4>
-            <h3>
-              <Link to="/client/add" className="btn shadow btn-success">
-                Add Client
-              </Link>
-            </h3>
-          </div>
+        <div className="col-xl-8 col-md-10 col-sm-12 mt mx-auto">
+          <div className="card card-block shadow">
+            <div className="card-header d-flex justify-content-between">
+              <h3 className="align-self-end">
+                <i className="fas fa-users" /> Clients
+              </h3>
+              <h4 className="text-right align-self-end">
+                Total Owed:{' '}
+                <span className="text-danger">
+                  ${parseFloat(totalOwed).toFixed(2)}
+                </span>
+              </h4>
+              <h3>
+                <Link to="/client/add" className="btn shadow btn-success">
+                  Add Client
+                </Link>
+              </h3>
+            </div>
 
-          <table className="clients table table-striped">
-            <thead className="thead-inverse">
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Balance</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {clients.map(client => (
-                <tr key={client.id}>
-                  <td>
-                    {client.firstName} {client.lastName}
-                  </td>
-                  <td>{client.email}</td>
-                  <td>${parseFloat(client.balance).toFixed(2)}</td>
-                  <td>
-                    <Link
-                      to={`/client/${client.id}`}
-                      className="btn btn-secondary btn-sm"
-                    >
-                      <i className="fas fa-arrow-circle-right" /> Details
-                    </Link>
-                  </td>
+            <table className="clients table table-striped">
+              <thead className="thead-inverse">
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Balance</th>
+                  <th />
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {clients.map(client => (
+                  <tr key={client.id}>
+                    <td>
+                      {client.firstName} {client.lastName}
+                    </td>
+                    <td>{client.email}</td>
+                    <td>${parseFloat(client.balance).toFixed(2)}</td>
+                    <td>
+                      <Link
+                        to={`/client/${client.id}`}
+                        className="btn btn-secondary btn-sm"
+                      >
+                        <i className="fas fa-arrow-circle-right" /> Details
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       );
     } else {

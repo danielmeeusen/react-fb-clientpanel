@@ -67,69 +67,72 @@ class ClientDetails extends Component {
     if (client) {
       return (
         <div>
-          <div className="card shadow">
-            <h3 className="card-header">
-              {client.firstName} {client.lastName}
-              <div className="btn-group float-right mr-2">
-                <Link
-                  to={`/client/edit/${client.id}`}
-                  className="btn btn-dark btn-sm"
-                >
-                  Edit
-                </Link>
-                <button
-                  onClick={this.onDeleteClick}
-                  className="btn btn-danger btn-sm"
-                >
-                  Delete
-                </button>
-              </div>
-            </h3>
+          {' '}
+          <div className="col-xl-8 col-md-10 col-sm-12 mt mx-auto">
+            <div className="card shadow">
+              <h3 className="card-header">
+                {client.firstName} {client.lastName}
+                <div className="btn-group float-right mr-2">
+                  <Link
+                    to={`/client/edit/${client.id}`}
+                    className="btn btn-dark btn-sm"
+                  >
+                    Edit
+                  </Link>
+                  <button
+                    onClick={this.onDeleteClick}
+                    className="btn btn-danger btn-sm"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </h3>
 
-            <div className="card-body">
-              <div className="row">
-                <div className="col-md-8 col-sm-6">
-                  <h6>
-                    Client ID:{' '}
-                    <span className="text-secondary">{client.id}</span>
-                  </h6>
-                </div>
-                <div className="col-md-4 col-sm-6">
-                  <h4 className="pull-right">
-                    Balance:{' '}
-                    <span
-                      className={classnames({
-                        'text-danger': client.balance > 0,
-                        'text-success': client.balance === 0
-                      })}
-                    >
-                      ${parseFloat(client.balance).toFixed(2)}
-                    </span>{' '}
-                    <small>
-                      <a
-                        href="#!"
-                        onClick={() =>
-                          this.setState({
-                            showBalanceUpdate: !this.state.showBalanceUpdate
-                          })
-                        }
+              <div className="card-body">
+                <div className="row">
+                  <div className="col-md-8 col-sm-6">
+                    <h6>
+                      Client ID:{' '}
+                      <span className="text-secondary">{client.id}</span>
+                    </h6>
+                  </div>
+                  <div className="col-md-4 col-sm-6">
+                    <h4 className="pull-right">
+                      Balance:{' '}
+                      <span
+                        className={classnames({
+                          'text-danger': client.balance > 0,
+                          'text-success': client.balance === 0
+                        })}
                       >
-                        <i className="fas fa-edit" />
-                      </a>
-                    </small>
-                  </h4>
-                  {balanceForm}
+                        ${parseFloat(client.balance).toFixed(2)}
+                      </span>{' '}
+                      <small>
+                        <a
+                          href="#!"
+                          onClick={() =>
+                            this.setState({
+                              showBalanceUpdate: !this.state.showBalanceUpdate
+                            })
+                          }
+                        >
+                          <i className="fas fa-edit" />
+                        </a>
+                      </small>
+                    </h4>
+                    {balanceForm}
+                  </div>
                 </div>
+                <hr />
+                <ul className="list-group">
+                  <li className="list-group-item">
+                    Contact Email: {client.email}
+                  </li>
+                  <li className="list-group-item">
+                    Contact Phone: {client.phone}
+                  </li>
+                </ul>
               </div>
-              <hr />
-              <ul className="list-group">
-                <li className="list-group-item">
-                  Contact Email: {client.email}
-                </li>
-                <li className="list-group-item">
-                  Contact Phone: {client.phone}
-                </li>
-              </ul>
             </div>
           </div>
         </div>

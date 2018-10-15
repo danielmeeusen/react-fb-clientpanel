@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import {
   UserIsAuthenticated,
   UserIsNotAuthenticated
 } from './../../helpers/auth';
-
-import PropTypes from 'prop-types';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
 
 import Dashboard from './Dashboard';
 import AddClient from './../clients/AddClient';
@@ -26,6 +21,12 @@ class Routes extends Component {
     return (
       <Switch>
         <Route exact path="/" component={UserIsAuthenticated(Dashboard)} />
+        <Redirect exact from="/" to="/Dashboard" />
+        <Route
+          exact
+          path="/dashboard"
+          component={UserIsAuthenticated(Dashboard)}
+        />
         <Route
           exact
           path="/client/add"
@@ -59,14 +60,4 @@ class Routes extends Component {
   }
 }
 
-Routes.propTypes = {
-  firestore: PropTypes.object.isRequired,
-  settings: PropTypes.object.isRequired
-};
-
-export default compose(
-  firestoreConnect(),
-  connect((state, props) => ({
-    settings: state.settings
-  }))
-)(Routes);
+export default Routes;

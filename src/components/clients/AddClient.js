@@ -34,80 +34,82 @@ class AddClient extends Component {
   render() {
     const { disableBalanceOnAdd } = this.props.settings;
     return (
-      <div className="card shadow">
-        <div className="card-header">
-          <h4 className="header-content"> Add Client </h4>
-        </div>
-        <div className="card-body">
-          <form onSubmit={this.onSubmit}>
-            <div className="form-group">
-              <label htmlFor="firstName">First Name</label>
-              <input
-                type="text"
-                className="form-control"
-                name="firstName"
-                minLength="2"
-                required
-                onChange={this.onChange}
-                value={this.state.firstName}
-              />
-            </div>
+      <div className="col-xl-8 col-md-10 col-sm-12 mt mx-auto">
+        <div className="card shadow">
+          <div className="card-header">
+            <h4 className="header-content"> Add Client </h4>
+          </div>
+          <div className="card-body">
+            <form onSubmit={this.onSubmit}>
+              <div className="form-group">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="firstName"
+                  minLength="2"
+                  required
+                  onChange={this.onChange}
+                  value={this.state.firstName}
+                />
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                type="text"
-                className="form-control"
-                name="lastName"
-                minLength="2"
-                required
-                onChange={this.onChange}
-                value={this.state.lastName}
-              />
-            </div>
+              <div className="form-group">
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="lastName"
+                  minLength="2"
+                  required
+                  onChange={this.onChange}
+                  value={this.state.lastName}
+                />
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                className="form-control"
-                name="email"
-                onChange={this.onChange}
-                value={this.state.email}
-              />
-            </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  name="email"
+                  onChange={this.onChange}
+                  value={this.state.email}
+                />
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="phone">Phone</label>
-              <input
-                type="text"
-                className="form-control"
-                name="phone"
-                minLength="10"
-                required
-                onChange={this.onChange}
-                value={this.state.phone}
-              />
-            </div>
+              <div className="form-group">
+                <label htmlFor="phone">Phone</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="phone"
+                  minLength="10"
+                  required
+                  onChange={this.onChange}
+                  value={this.state.phone}
+                />
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="balance">Balance</label>
-              <input
-                type="text"
-                className="form-control"
-                name="balance"
-                onChange={this.onChange}
-                value={this.state.balance}
-                disabled={disableBalanceOnAdd}
-              />
-            </div>
+              <div className="form-group">
+                <label htmlFor="balance">Balance</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="balance"
+                  onChange={this.onChange}
+                  value={this.state.balance}
+                  disabled={disableBalanceOnAdd}
+                />
+              </div>
 
-            <input
-              type="submit"
-              value="Submit"
-              className="btn btn-primary btn-block"
-            />
-          </form>
+              <input
+                type="submit"
+                value="Submit"
+                className="btn btn-primary btn-block"
+              />
+            </form>
+          </div>
         </div>
       </div>
     );

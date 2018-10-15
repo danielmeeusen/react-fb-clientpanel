@@ -9,10 +9,11 @@ $scale: 4;
 
 @import 'colors';
 @import 'body';
-@import 'account';
+@import 'loader';
 @import 'nav';
 @import 'mobile-nav';
 @import 'mixins';
+@import 'account';
 @import 'toggle';
 
 @include scaleHeaders($baseFontSize, $scale);

@@ -10,10 +10,6 @@ class BrowserNav extends Component {
   onLogoutClick = e => {
     e.preventDefault();
 
-    // if (this.props.settings.darkTheme) {
-    //   this.darkThemeChange();
-    // }
-
     const { firebase } = this.props;
 
     firebase.logout();
@@ -55,7 +51,7 @@ class BrowserNav extends Component {
         background: {
           backgroundImage: `url(${photoURL})`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: '36px'
+          backgroundSize: '38px'
         },
         content: ''
       };
@@ -73,16 +69,17 @@ class BrowserNav extends Component {
         </Link>
 
         <div className="collapse navbar-collapse">
+          <ul className="navbar-nav">
+            <li className="nav-item active">
+              <Link to="/" className="nav-link">
+                Dashboard
+              </Link>
+            </li>
+          </ul>
           {isAuthenticated ? (
             <ul className="navbar-nav right-bar ml-auto d-flex justify-content-around">
               <li className="nav-item">
-                <Link
-                  to="/"
-                  className="nav-link"
-                  data-toggle="tooltip"
-                  data-placement="bottom"
-                  title="Messages"
-                >
+                <Link to="/" className="nav-link">
                   <i className="fas fa-envelope">
                     <span className="badge badge-notify">
                       {badges.messages}
@@ -91,13 +88,7 @@ class BrowserNav extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  to="/"
-                  className="nav-link"
-                  data-toggle="tooltip"
-                  data-placement="bottom"
-                  title="Notifications"
-                >
+                <Link to="/" className="nav-link">
                   <i className="fas fa-bell">
                     <span className="badge badge-notify">
                       {badges.notifications}
@@ -107,7 +98,7 @@ class BrowserNav extends Component {
               </li>
               <li className="nav-item dropdown">
                 <a
-                  className="dropdown-toggle btn text-light"
+                  className="dropdown-toggle btn shadow text-light account-btn"
                   id="navbarDropdownMenuLink"
                   data-toggle="dropdown"
                   aria-haspopup="true"

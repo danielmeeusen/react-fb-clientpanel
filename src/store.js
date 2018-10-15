@@ -60,18 +60,20 @@ const initialState = { settings: JSON.parse(localStorage.getItem('settings')) };
 // create store
 let store;
 
-if (process.env.NODE_ENV === 'production') {
-  store = createStoreWithFirebase(
-    rootReducer,
-    initialState,
-    reactReduxFirebase(firebase)
-  );
-} else {
+console.log(process.env);
+
+if (process.env.NODE_ENV === 'development') {
   store = createStoreWithFirebase(
     rootReducer,
     initialState,
     reactReduxFirebase(firebase) + window.__REDUX_DEVTOOLS_EXTENSION__ &&
       window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
+} else {
+  store = createStoreWithFirebase(
+    rootReducer,
+    initialState,
+    reactReduxFirebase(firebase)
   );
 }
 

@@ -7,6 +7,8 @@ import { firebaseConnect } from 'react-redux-firebase';
 import { notifyUser } from '../../actions/notifyActions';
 import Alert from '../layout/Alert';
 
+import { setDarkTheme } from '../../actions/settingsActions';
+
 class Login extends Component {
   state = {
     email: '',
@@ -26,7 +28,7 @@ class Login extends Component {
       })
       .catch(err =>
         notifyUser(
-          'Username or Password was not correct.  Please try again.',
+          'Username or Password is incorrect. Please try again.',
           'error'
         )
       );
@@ -94,6 +96,8 @@ class Login extends Component {
 
 Login.propTypes = {
   firebase: PropTypes.object.isRequired,
+  settings: PropTypes.object.isRequired,
+  setDarkTheme: PropTypes.func.isRequired,
   notify: PropTypes.object.isRequired,
   notifyUser: PropTypes.func.isRequired
 };
@@ -102,8 +106,12 @@ export default compose(
   firebaseConnect(),
   connect(
     (state, props) => ({
-      notify: state.notify
+      notify: state.notify,
+      settings: state.settings
     }),
-    { notifyUser }
+    {
+      notifyUser,
+      setDarkTheme
+    }
   )
 )(Login);

@@ -38,7 +38,7 @@ class Settings extends Component {
     } = this.props.settings;
 
     return (
-      <div className="col-lg-10 mx-auto">
+      <div className="col-xl-8 col-md-10 col-sm-12 mt mx-auto">
         <div className="card shadow">
           <h5 className="card-header">Edit Settings</h5>
           <div className="card-body">

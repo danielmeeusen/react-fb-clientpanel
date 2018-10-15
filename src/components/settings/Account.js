@@ -33,29 +33,31 @@ export class Account extends Component {
     const { firstName, lastName } = this.props.profile;
 
     return (
-      <div className="card shadow">
-        <h4 className="card-header">Account</h4>
-        <div className="card-body text-center mx-auto">
-          <div
-            className="account-img"
-            style={{ backgroundImage: `url(${photoURL})` }}
-          />
-          <div className="account-details">
-            <h1>
-              {firstName} {lastName}
-            </h1>
-            <p>
-              Email: <b>{email}</b>
-            </p>
-            <p>
-              Display Name: <b>{displayName}</b>
-            </p>
-            <p>
-              Position: <b>Owner</b>
-            </p>
-            <p>
-              email: <b>{displayName}</b>
-            </p>
+      <div className="col-xl-8 col-md-10 col-sm-12 mt mx-auto">
+        <div className="card shadow">
+          <h4 className="card-header">Account</h4>
+          <div className="card-body text-center mx-auto">
+            <div
+              className="account-img"
+              style={{ backgroundImage: `url(${photoURL})` }}
+            />
+            <div className="account-details">
+              <h1>
+                {firstName} {lastName}
+              </h1>
+              <p>
+                Email: <b>{email}</b>
+              </p>
+              <p>
+                Display Name: <b>{displayName}</b>
+              </p>
+              <p>
+                Position: <b>Owner</b>
+              </p>
+              <p>
+                email: <b>{displayName}</b>
+              </p>
+            </div>
           </div>
         </div>
       </div>
