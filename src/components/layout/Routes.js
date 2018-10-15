@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import {
   UserIsAuthenticated,
   UserIsNotAuthenticated
@@ -21,12 +21,6 @@ class Routes extends Component {
     return (
       <Switch>
         <Route exact path="/" component={UserIsAuthenticated(Dashboard)} />
-        <Redirect exact from="/" to="/Dashboard" />
-        <Route
-          exact
-          path="/dashboard"
-          component={UserIsAuthenticated(Dashboard)}
-        />
         <Route
           exact
           path="/client/add"

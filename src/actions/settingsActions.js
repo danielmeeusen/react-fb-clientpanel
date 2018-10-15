@@ -16,6 +16,8 @@ export const setDarkTheme = () => {
   // set back to localStorage
   localStorage.setItem('settings', JSON.stringify(settings));
 
+  window.location.reload();
+
   return {
     type: DARK_THEME,
     payload: settings.darkTheme
