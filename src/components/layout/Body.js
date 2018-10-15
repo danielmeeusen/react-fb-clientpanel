@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { firebaseConnect } from 'react-redux-firebase';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -7,11 +11,7 @@ import Routes from './Routes';
 
 class Body extends Component {
   render() {
-    const settings = JSON.parse(localStorage.getItem('settings'));
-
-    const { darkTheme } = settings;
-
-    console.log(darkTheme);
+    const { darkTheme } = this.props.settings;
 
     const theme = darkTheme ? 'Dark' : 'Light';
 
@@ -26,4 +26,13 @@ class Body extends Component {
   }
 }
 
-export default Body;
+Body.propTypes = {
+  settings: PropTypes.object.isRequired
+};
+
+export default compose(
+  firebaseConnect(),
+  connect((state, props) => ({
+    settings: state.settings
+  }))
+)(Body);
