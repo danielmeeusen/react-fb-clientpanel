@@ -53,14 +53,14 @@ if (localStorage.getItem('settings') == null) {
   localStorage.setItem('settings', JSON.stringify(defaultSettings));
 }
 
+const test = process.env.REACT_APP_SECRET_KEY;
+
 // create initial state
 // JSON.parse is used to return settings from a string to an object
 const initialState = { settings: JSON.parse(localStorage.getItem('settings')) };
 
 // create store
 let store;
-
-console.log(process.env);
 
 if (process.env.NODE_ENV === 'development') {
   store = createStoreWithFirebase(
